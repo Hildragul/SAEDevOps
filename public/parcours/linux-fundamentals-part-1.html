@@ -3,22 +3,118 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <title>Exemple</title>
+        <title>Linux Fundamentals Part I</title>
         <link href="../css/styles.css" rel="stylesheet" />
     </head>
     <body class="d-flex flex-column h-100">
-        <header>
-            <!-- Le header sera inséré dynamiquement ici -->
-        </header>
-        <main class="flex-shrink-0">
-            <!-- Le contenu principal de la page -->
-            <section class="py-5">
-                <div class="container px-5 my-5">
-                    <h1 class="fw-bolder">Exemple de contenu</h1>
-                    <p class="lead">Ceci est un exemple de contenu pour la page.</p>
+        <section class="py-5">
+            <div class="container px-5 my-5">
+                <div class="mb-5">
+                    <div class="ratio ratio-16x9">
+                        <iframe src="https://www.youtube.com/embed/1minutefreecode" title="Vidéo de présentation Linux" allowfullscreen></iframe>
+                    </div>
                 </div>
-            </section>
-        </main>
+                <h1 class="fw-bolder mb-4">Bienvenue dans "Linux Fundamentals Part I"</h1>
+                <p class="lead">Aujourd’hui, on découvre ensemble les bases de Linux, un système d’exploitation ultra présent dans le monde, des serveurs aux smartphones.</p>
+        
+                <h2 class="mt-5">Objectifs de cette première partie</h2>
+                <ul>
+                    <li>Exécuter nos premières commandes sur une machine Linux interactive</li>
+                    <li>Apprendre à naviguer dans les fichiers et dossiers</li>
+                    <li>Utiliser des outils puissants comme <code>find</code> et <code>grep</code></li>
+                </ul>
+                <p>L’objectif ? Te rendre à l’aise avec les bases de Linux pour aller encore plus loin par la suite.</p>
+        
+                <h2 class="mt-5">Où trouve-t-on Linux ?</h2>
+                <p>Linux est plus répandu qu’on ne le croit. Même si on ne le voit pas directement, il alimente :</p>
+                <ul>
+                    <li>Les sites web qu’on consulte</li>
+                    <li>Les systèmes embarqués dans les voitures</li>
+                    <li>Les caisses enregistreuses</li>
+                    <li>Des infrastructures critiques comme les feux de circulation</li>
+                </ul>
+        
+                <h2 class="mt-5">Les différentes versions de Linux</h2>
+                <p>Linux n’est pas un système unique, mais une famille de distributions basées sur UNIX. Grâce à son code open-source, il existe des variantes pour tous les usages :</p>
+                <ul>
+                    <li>🔹 <strong>Ubuntu & Debian</strong> : pour serveurs ou postes de travail</li>
+                    <li>🔹 <strong>Ubuntu Server</strong> : peut fonctionner avec seulement 512 Mo de RAM !</li>
+                </ul>
+                <p>Dans cette série, nous utiliserons principalement <strong>Ubuntu</strong>.</p>
+        
+                <h2 class="mt-5">Petit retour en arrière…</h2>
+                <p>Le noyau Linux a été créé en 1991 par <strong>Linus Torvalds</strong>. Depuis, il a évolué pour devenir un pilier du monde informatique moderne.</p>
+        
+                <h2 class="mt-5">Linux sans interface graphique ?</h2>
+                <p>Linux est souvent utilisé sans interface graphique (GUI). On travaille directement via le <strong>Terminal</strong>.</p>
+                <h5>Le Terminal, c’est quoi ?</h5>
+                <p>Un environnement en ligne de commande qui permet :</p>
+                <ul>
+                    <li>De naviguer dans les fichiers et répertoires</li>
+                    <li>D'afficher ou manipuler du contenu</li>
+                    <li>D'exécuter des scripts ou installer des programmes</li>
+                </ul>
+                <p>Pour commencer, voici deux commandes simples :</p>
+                <ul>
+                    <li><code>echo "Hello World"</code> - Affiche un message dans le terminal</li>
+                    <li><code>whoami</code> – Affiche ton nom d’utilisateur</li>
+                </ul>
+        
+                <h2 class="mt-5">Naviguer et interagir avec les fichiers</h2>
+                <p>Voici quelques commandes essentielles à connaître :</p>
+                <ul>
+                    <li><code>ls</code> – Lister les fichiers d’un répertoire</li>
+                    <li><code>cd</code> – Se déplacer dans un dossier</li>
+                    <li><code>pwd</code> – Afficher le chemin actuel</li>
+                    <li><code>cat</code> – Lire le contenu d’un fichier</li>
+                </ul>
+        
+                <h2 class="mt-5">Recherche efficace sous Linux</h2>
+                <p>Deux commandes très puissantes :</p>
+                <ul>
+                    <li><code>find</code> – Pour retrouver des fichiers dans l’arborescence</li>
+                    <li><code>grep</code> – Pour chercher du texte à l’intérieur des fichiers</li>
+                </ul>
+        
+                <h2 class="mt-5">Les opérateurs du Shell</h2>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Opérateur</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>&</code></td>
+                            <td>Exécute une commande en arrière-plan</td>
+                        </tr>
+                        <tr>
+                            <td><code>&&</code></td>
+                            <td>Exécute la commande suivante seulement si la précédente réussit</td>
+                        </tr>
+                        <tr>
+                            <td><code>></code></td>
+                            <td>Redirige la sortie d'une commande vers un fichier (remplace le contenu)</td>
+                        </tr>
+                        <tr>
+                            <td><code>>></code></td>
+                            <td>Ajoute la sortie à un fichier sans écraser l'existant</td>
+                        </tr>
+                    </tbody>
+                </table>
+        
+                <h2 class="mt-5">En résumé</h2>
+                <ol>
+                    <li><strong>Pourquoi Linux est si répandu ?</strong><br>Un système fiable, gratuit et adaptable à tous les besoins.</li>
+                    <li><strong>Première interaction avec une machine Linux :</strong> <code>ls</code>, <code>cd</code>, <code>cat</code>, <code>pwd</code>.</li>
+                    <li><strong>Commandes de base :</strong> pour manipuler fichiers et répertoires.</li>
+                    <li><strong>find & grep :</strong> pour faire des recherches précises dans le système.</li>
+                    <li><strong>Les opérateurs :</strong> pour automatiser et optimiser les tâches en ligne de commande.</li>
+                </ol>
+            </div>
+        </section>
+        
         <footer>
             <!-- Le footer sera inséré dynamiquement ici -->
         </footer>
