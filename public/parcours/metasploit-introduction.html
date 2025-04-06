@@ -1,28 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <title>Exemple</title>
-        <link href="../css/styles.css" rel="stylesheet" />
-    </head>
-    <body class="d-flex flex-column h-100">
-        <header>
-            <!-- Le header sera inséré dynamiquement ici -->
-        </header>
-        <main class="flex-shrink-0">
-            <!-- Le contenu principal de la page -->
-            <section class="py-5">
-                <div class="container px-5 my-5">
-                    <h1 class="fw-bolder">Exemple de contenu</h1>
-                    <p class="lead">Ceci est un exemple de contenu pour la page.</p>
-                </div>
-            </section>
-        </main>
-        <footer>
-            <!-- Le footer sera inséré dynamiquement ici -->
-        </footer>
-        <script src="../js/scripts.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    </body>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Metasploit Introduction</title>
+    <link href="../css/styles.css" rel="stylesheet" />
+</head>
+<body class="d-flex flex-column h-100">
+    <header>
+        <!-- Le header sera inséré dynamiquement ici -->
+    </header>
+    <main class="flex-shrink-0">
+        <section class="py-5">
+            <div class="container px-5 my-5">
+                <h1 class="fw-bolder">Room : Metasploit Introduction</h1>
+
+                <h3 class="mt-4">Task 1 – Introduction to Metasploit</h3>
+                <p>Cette room introduit Metasploit, un outil incontournable en pentest. Il est utilisé aussi bien pour la recherche de vulnérabilités que pour l’exploitation, et même les étapes après compromission.</p>
+                <p>Il existe deux versions :</p>
+                <ul>
+                    <li>Metasploit Pro (version payante avec interface graphique)</li>
+                    <li>Metasploit Framework (version open-source en ligne de commande)</li>
+                </ul>
+                <p>Avec Metasploit Framework, on peut :</p>
+                <ul>
+                    <li>Scanner et collecter des infos</li>
+                    <li>Exploiter des failles</li>
+                    <li>Gérer des payloads (code injecté sur la cible)</li>
+                    <li>Automatiser certains tests</li>
+                </ul>
+                <p>Les composants principaux sont :</p>
+                <ul>
+                    <li>msfconsole → interface principale en ligne de commande</li>
+                    <li>Modules → exploits, scanners, payloads, etc.</li>
+                    <li>Outils → comme msfvenom (création de payloads), pattern_create, etc.</li>
+                </ul>
+                <p>L’objectif de cette room est de te rendre à l’aise avec l’environnement Metasploit, pour savoir :</p>
+                <ul>
+                    <li>Trouver un exploit</li>
+                    <li>Configurer les bons paramètres</li>
+                    <li>Lancer l’attaque contre un service vulnérable</li>
+                </ul>
+
+                <h3 class="mt-4">Task 2 – Main Components of Metasploit</h3>
+                <p><strong>Résumé :</strong> On découvre les types de modules et les notions clés comme vulnérabilité, exploit, payload.</p>
+                <p><strong>Notions clés :</strong></p>
+                <ul>
+                    <li>Vulnérabilité : faille dans un système</li>
+                    <li>Exploit : code qui exploite une vulnérabilité</li>
+                    <li>Payload : code exécuté sur la cible</li>
+                </ul>
+                <p><strong>Types de modules :</strong></p>
+                <ul>
+                    <li>Exploit</li>
+                    <li>Payload</li>
+                    <li>Auxiliary</li>
+                    <li>Post</li>
+                    <li>Encoders</li>
+                    <li>Evasion</li>
+                    <li>NOPs</li>
+                </ul>
+                <p><strong>Types de payload :</strong> singles (autonomes), stagers + stages (en deux parties)</p>
+                <p><strong>Trick :</strong> "_" = single ; "/" = staged</p>
+
+                <p><strong>Questions et réponses :</strong></p>
+                <ul>
+                    <li>Q1 : What is the name of the code taking advantage of a flaw on the target system? <strong>R :</strong> Exploit</li>
+                    <li>Q2 : What is the name of the code that runs on the target system to achieve the attacker's goal? <strong>R :</strong> Payload</li>
+                    <li>Q3 : What are self-contained payloads called? <strong>R :</strong> Singles</li>
+                    <li>Q4 : Staged or single? <strong>R :</strong> Singles</li>
+                </ul>
+
+                <h3 class="mt-4">Task 3 – Msfconsole</h3>
+                <p><strong>Résumé :</strong> msfconsole est l’interface principale du framework Metasploit. Elle permet de :</p>
+                <ul>
+                    <li>Lancer des modules avec <code>use</code></li>
+                    <li>Afficher les options avec <code>show options</code></li>
+                    <li>Rechercher avec <code>search</code></li>
+                    <li>Afficher des infos avec <code>info</code></li>
+                    <li>Auto-compléter avec Tab</li>
+                    <li>Utiliser l’historique</li>
+                    <li>Revenir avec <code>back</code></li>
+                </ul>
+                <p>Exemple d’utilisation :</p>
+                <pre>use exploit/windows/smb/ms17_010_eternalblue</pre>
+                <p>Autres commandes utiles :</p>
+                <ul>
+                    <li>show payloads</li>
+                    <li>search type:auxiliary telnet</li>
+                    <li>Rang des exploits : great, normal, manual…</li>
+                </ul>
+                <p><strong>Questions et réponses :</strong></p>
+                <ul>
+                    <li>Q1 : How would you search for a module related to Apache? <strong>R :</strong> search apache</li>
+                    <li>Q2 : Who provided the auxiliary/scanner/ssh/ssh_login module? <strong>R :</strong> todb</li>
+                </ul>
+
+                <h3 class="mt-4">Task 4 – Working with Modules</h3>
+                <p><strong>Résumé :</strong> Chaque module a ses propres options à configurer. Les commandes principales :</p>
+                <ul>
+                    <li><code>use [module]</code></li>
+                    <li><code>show options</code></li>
+                    <li><code>set [paramètre] [valeur]</code></li>
+                    <li><code>setg [paramètre] [valeur]</code></li>
+                    <li><code>unset [paramètre]</code> ou <code>unset all</code></li>
+                    <li><code>exploit</code> ou <code>run</code></li>
+                    <li><code>sessions</code> et <code>sessions -i [id]</code></li>
+                    <li><code>background</code> ou CTRL+Z</li>
+                </ul>
+                <p><strong>Réponses aux questions :</strong></p>
+                <ul>
+                    <li>Q1: How would you set the LPORT value to 6666? <strong>R :</strong> set LPORT 6666</li>
+                    <li>Q2: How would you set the global value for RHOSTS to 10.10.19.23? <strong>R :</strong> setg RHOSTS 10.10.19.23</li>
+                    <li>Q3: What command would you use to clear a set payload? <strong>R :</strong> unset payload</li>
+                    <li>Q4: What command do you use to proceed with the exploitation phase? <strong>R :</strong> exploit</li>
+                </ul>
+
+                <h3 class="mt-4">Task 5 – Résumé</h3>
+                <p><strong>Résumé :</strong> Metasploit est un cadre d’exploitation puissant.</p>
+                <p><strong>Les 3 grandes étapes :</strong></p>
+                <ol>
+                    <li>Trouver un exploit</li>
+                    <li>Configurer les paramètres nécessaires</li>
+                    <li>Lancer l’exploit</li>
+                </ol>
+                <p><strong>Ce que j’ai appris :</strong></p>
+                <ul>
+                    <li>Comment lancer et utiliser msfconsole</li>
+                    <li>La différence entre un exploit, une vulnérabilité et un payload</li>
+                    <li>Les différents types de modules Metasploit (auxiliary, post, payloads, encoders, etc.)</li>
+                    <li>À configurer les paramètres clés comme RHOSTS, LHOST, LPORT</li>
+                    <li>À utiliser les commandes <code>use</code>, <code>set</code>, <code>show options</code>, <code>exploit</code>, <code>sessions</code>, etc.</li>
+                    <li>À rechercher des modules avec <code>search</code></li>
+                    <li>À exploiter une faille (MS17-010) et interagir avec une session Meterpreter</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <!-- Le footer sera inséré dynamiquement ici -->
+    </footer>
+    <script src="../js/scripts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>

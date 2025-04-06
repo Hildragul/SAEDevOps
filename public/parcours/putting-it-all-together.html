@@ -1,28 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <title>Exemple</title>
-        <link href="../css/styles.css" rel="stylesheet" />
-    </head>
-    <body class="d-flex flex-column h-100">
-        <header>
-            <!-- Le header sera inséré dynamiquement ici -->
-        </header>
-        <main class="flex-shrink-0">
-            <!-- Le contenu principal de la page -->
-            <section class="py-5">
-                <div class="container px-5 my-5">
-                    <h1 class="fw-bolder">Exemple de contenu</h1>
-                    <p class="lead">Ceci est un exemple de contenu pour la page.</p>
-                </div>
-            </section>
-        </main>
-        <footer>
-            <!-- Le footer sera inséré dynamiquement ici -->
-        </footer>
-        <script src="../js/scripts.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    </body>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>Putting It All Together</title>
+  <link href="../css/styles.css" rel="stylesheet" />
+</head>
+<body class="d-flex flex-column h-100">
+  <header>
+    <!-- Le header sera inséré dynamiquement ici -->
+  </header>
+  <main class="flex-shrink-0">
+    <section class="py-5">
+      <div class="container px-5 my-5">
+        <!-- Ajout du lien YouTube supplémentaire -->
+        <div class="mb-4">
+          <iframe width="100%" height="400" src="https://www.youtube.com/embed/N4Nj2MSrRVg" 
+            title="YouTube Video" frameborder="0" allowfullscreen></iframe>
+        </div>
+
+        <h1 class="fw-bolder">Room : Putting It All Together</h1>
+
+        <h2 class="mt-4">Contexte général de la room</h2>
+        <p>Cette room sert de synthèse des concepts abordés dans les précédentes rooms : DNS, HTTP, URLs, requêtes/réponses, méthodes, cookies, et status codes.</p>
+        <p>Elle explique comment tout s’enchaîne lorsqu’on accède à un site web depuis un navigateur, et introduit aussi quelques composants supplémentaires utilisés pour optimiser le fonctionnement d’Internet.</p>
+        <hr class="my-4" />
+
+        <h3 class="mt-4">Task 1 – Putting It All Together</h3>
+        <p><strong>Résumé de la tâche :</strong></p>
+        <p>Quand on demande une page web, plusieurs étapes se déroulent en coulisses :</p>
+        <ol>
+          <li>Résolution DNS : pour convertir le nom de domaine en adresse IP.</li>
+          <li>Requête HTTP : envoyée au serveur via un protocole structuré.</li>
+          <li>Réponse du serveur : envoie les ressources (HTML, CSS, JS, images…).</li>
+          <li>Affichage : le navigateur assemble les ressources pour afficher le site.</li>
+        </ol>
+        <p>D'autres composants (comme les CDN, proxys, caches, etc.) seront vus plus loin pour montrer comment Internet devient plus rapide, plus sécurisé et plus fiable.</p>
+
+        <h3 class="mt-4">Task 2 – Other Components</h3>
+        <p><strong>Résumé de la tâche :</strong></p>
+        <p>On explore ici des composants supplémentaires essentiels pour améliorer les performances, la fiabilité et la sécurité des sites web :</p>
+        <ul>
+          <li><strong>Load Balancer :</strong> Répartit les requêtes entre plusieurs serveurs pour gérer un grand trafic ou assurer une haute disponibilité. Il utilise des algorithmes (comme round-robin ou weighted) et effectue des health checks pour détecter les serveurs défaillants.</li>
+          <li><strong>CDN (Content Delivery Network) :</strong> Réseau mondial de serveurs qui hébergent des fichiers statiques (images, vidéos, CSS, JS) pour les livrer plus rapidement depuis un serveur proche du client.</li>
+          <li><strong>Databases :</strong> Permettent de stocker et récupérer des données côté serveur. Exemples : MySQL, MongoDB, PostgreSQL...</li>
+          <li><strong>WAF (Web Application Firewall) :</strong> Analyse les requêtes HTTP pour bloquer les attaques (XSS, DDoS, bots…). Utilise des règles, du filtrage, et du rate limiting pour se défendre.</li>
+        </ul>
+        <p><strong>Questions et réponses :</strong></p>
+        <ul>
+          <li>Q1 : What can be used to host static files and speed up a clients visit to a website?<br>R : CDN</li>
+          <li>Q2 : What does a load balancer perform to make sure a host is still alive?<br>R : Health Check</li>
+          <li>Q3 : What can be used to help against the hacking of a website?<br>R : WAF</li>
+        </ul>
+
+        <h3 class="mt-4">Task 3 – How Web Servers Work</h3>
+        <p><strong>Résumé de la tâche :</strong></p>
+        <p>Cette tâche explique le fonctionnement des serveurs web, leur rôle, et la distinction entre contenu statique et dynamique.</p>
+        <ul>
+          <li>Un serveur web (comme Apache, Nginx, IIS, NodeJS) écoute les connexions et sert des fichiers via le protocole HTTP.</li>
+          <li>Les fichiers sont généralement servis depuis un dossier racine (/var/www/html sous Linux, C:\inetpub\wwwroot sous Windows).</li>
+          <li>Grâce aux virtual hosts, un seul serveur peut héberger plusieurs sites différents (domaines multiples).</li>
+        </ul>
+        <p><strong>Contenu statique vs dynamique :</strong></p>
+        <ul>
+          <li>Statique : ne change pas (images, CSS, JS, HTML fixe).</li>
+          <li>Dynamique : généré à la volée selon les données, les requêtes ou les utilisateurs (ex : résultats de recherche, contenu personnalisé).</li>
+        </ul>
+        <p><strong>Questions et réponses :</strong></p>
+        <ul>
+          <li>Q1 : What does web server software use to host multiple sites?<br>R : Virtual Hosts</li>
+          <li>Q2 : What is the name for the type of content that can change?<br>R : Dynamic</li>
+          <li>Q3 : Does the client see the backend code? Yay/Nay<br>R : Nay</li>
+        </ul>
+
+        <h3 class="mt-4">Task 4 – Quiz</h3>
+        <p><strong>Résumé de la tâche :</strong></p>
+        <p>Dans cette task finale, tu dois reconstituer l’ordre logique d’un accès à un site web, à l’aide d’un quiz interactif. En utilisant tout ce que tu as appris (DNS, HTTP, serveurs, contenu, etc.), tu places chaque étape dans le bon ordre pour découvrir le flag.</p>
+        <p><strong>Réponse :</strong><br>
+          Flag : THM{YOU_GOT_THE_ORDER}
+        </p>
+
+        <h3 class="mt-4">Ce que j’ai compris</h3>
+        <p>Cette room m’a permis de relier tous les concepts appris précédemment sur le fonctionnement du web. Quand on accède à un site, il ne s’agit pas juste d’un clic : plein de choses se passent en arrière-plan, et chaque étape est essentielle pour que tout fonctionne correctement.</p>
+        <p>J’ai compris que tout commence par la résolution DNS, qui permet de traduire un nom de domaine en adresse IP. Ensuite, une requête HTTP est envoyée à un serveur web, qui peut être protégé par un WAF, réparti par un load balancer, ou optimisé par un CDN.</p>
+        <p>Le serveur web (comme Apache ou Nginx) va alors gérer la demande. Il peut répondre avec :</p>
+        <ul>
+          <li>des fichiers statiques (images, HTML fixes...),</li>
+          <li>ou du contenu dynamique généré à la volée via un langage backend (comme PHP ou NodeJS), souvent en lien avec une base de données.</li>
+        </ul>
+        <p>L’ensemble est orchestré de façon transparente pour l’utilisateur, qui ne voit que le résultat final dans son navigateur.</p>
+        <p>Enfin, j’ai mieux compris l’importance de la structure logique des requêtes, des headers, des méthodes HTTP, des status codes, et le rôle des cookies dans les sessions utilisateurs.</p>
+        <p>En résumé : cette room est une vue d’ensemble très utile pour comprendre le web dans sa globalité, avant d’aller plus loin dans l’analyse ou la sécurité des applications web.</p>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <!-- Le footer sera inséré dynamiquement ici -->
+  </footer>
+  <script src="../js/scripts.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>

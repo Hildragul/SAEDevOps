@@ -6,19 +6,53 @@
         <title>Exemple</title>
         <link href="../css/styles.css" rel="stylesheet" />
     </head>
+    <header>
+        
+    </header>
     <body class="d-flex flex-column h-100">
-        <header>
-            <!-- Le header sera inséré dynamiquement ici -->
-        </header>
-        <main class="flex-shrink-0">
-            <!-- Le contenu principal de la page -->
-            <section class="py-5">
-                <div class="container px-5 my-5">
-                    <h1 class="fw-bolder">Exemple de contenu</h1>
-                    <p class="lead">Ceci est un exemple de contenu pour la page.</p>
-                </div>
-            </section>
-        </main>
+
+            <main class="flex-shrink-0">
+                <section class="py-5">
+                    <div class="container px-5 my-5">
+                        <div class="mb-5">
+                            <h1 class="mb-4">Services Firebase utilisés dans notre projet</h1>
+        
+                            <p>
+                                Dans le cadre de notre SAE, nous avons fait appel à certains services Firebase pour simplifier la gestion de notre projet web. Firebase est une plateforme proposée par Google, particulièrement utile pour le développement et l’hébergement d’applications web. Voici les services que nous avons exploités :
+                            </p>
+        
+                            <h2 class="mt-5">Firebase Hosting</h2>
+                            <p>
+                                Firebase Hosting nous a permis de publier notre site web de manière rapide et sécurisée. Grâce à son infrastructure CDN mondiale, le chargement des pages est optimisé. Nous avons utilisé ce service pour :
+                            </p>
+                            <ul>
+                                <li>Déployer notre site avec une simple commande depuis la ligne de commande,</li>
+                                <li>Bénéficier automatiquement d’un certificat HTTPS,</li>
+                                <li>Mettre à jour facilement notre application à chaque modification,</li>
+                                <li>Prévisualiser nos modifications avant publication finale.</li>
+                            </ul>
+        
+                            <h2 class="mt-5">Firebase Cloud Storage</h2>
+                            <p>
+                                Pour gérer l’hébergement de fichiers, notamment des images ou documents liés au projet, nous avons utilisé Firebase Cloud Storage. Ce service nous offre :
+                            </p>
+                            <ul>
+                                <li>Une capacité de stockage évolutive,</li>
+                                <li>Des URLs accessibles pour partager les fichiers hébergés,</li>
+                                <li>Un contrôle précis des accès (public ou privé),</li>
+                                <li>Une bonne intégration avec les autres services Firebase.</li>
+                            </ul>
+        
+                            <h2 class="mt-5">Conclusion</h2>
+                            <p>
+                                En combinant Firebase Hosting et Cloud Storage, nous avons pu déployer une application fonctionnelle rapidement, tout en assurant la gestion efficace de nos ressources. Ces outils ont grandement simplifié la partie infrastructure du projet.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        
+        </body>
         <footer>
             <!-- Le footer sera inséré dynamiquement ici -->
         </footer>
