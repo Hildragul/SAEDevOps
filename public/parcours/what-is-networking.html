@@ -1,28 +1,115 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <title>Exemple</title>
-        <link href="../css/styles.css" rel="stylesheet" />
-    </head>
-    <body class="d-flex flex-column h-100">
-        <header>
-            <!-- Le header sera inséré dynamiquement ici -->
-        </header>
-        <main class="flex-shrink-0">
-            <!-- Le contenu principal de la page -->
-            <section class="py-5">
-                <div class="container px-5 my-5">
-                    <h1 class="fw-bolder">Exemple de contenu</h1>
-                    <p class="lead">Ceci est un exemple de contenu pour la page.</p>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Comprendre les Réseaux Informatiques</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body class="d-flex flex-column h-100">
+    <header>
+        <!-- Le header sera inséré dynamiquement ici -->
+    </header>
+
+    <section class="py-5">
+        <div class="container px-5 my-5">
+            <div class="mb-5">
+                <div class="ratio ratio-16x9">
+                    <iframe src="https://youtu.be/MCXQ7FcFi30" title="Vidéo de présentation Linux" allowfullscreen></iframe>
                 </div>
-            </section>
-        </main>
-        <footer>
-            <!-- Le footer sera inséré dynamiquement ici -->
-        </footer>
-        <script src="../js/scripts.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    </body>
+            </div>
+            <div class="mb-5">
+                <h1 class="fw-bolder mb-4">Comprendre les Réseaux Informatiques</h1>
+                <p class="lead">Un réseau informatique permet aux appareils de communiquer entre eux. Cette introduction détaillée explique les principes fondamentaux, d’Internet aux adresses IP et MAC, jusqu’au diagnostic réseau avec l’outil Ping.</p>
+            </div>
+
+            <h2 class="mt-5">Qu’est-ce qu’un réseau informatique ?</h2>
+            <p>Un réseau est un ensemble d’éléments connectés entre eux. Dans le monde réel, cela peut être un réseau de transports, de distribution d’électricité ou de personnes. En informatique, un réseau est constitué d’appareils (ordinateurs, téléphones, imprimantes, routeurs, objets connectés, etc.) reliés entre eux pour échanger des données.</p>
+            <p>Ces appareils communiquent entre eux à travers des connexions physiques (câbles Ethernet) ou sans fil (Wi-Fi, Bluetooth). Les réseaux permettent notamment de partager des fichiers, accéder à Internet, utiliser des services à distance ou encore gérer des infrastructures.</p>
+
+            <h2 class="mt-5">Introduction à Internet</h2>
+            <p>Internet est un réseau mondial qui connecte des millions de réseaux locaux. C’est ce qu’on appelle un réseau de réseaux. Chaque réseau est relié à d’autres via des équipements comme les routeurs, formant une structure interconnectée à grande échelle.</p>
+            <p>Le tout premier réseau informatique interconnecté était ARPANET, développé dans les années 1960 par le département de la Défense américain. En 1989, le chercheur britannique Tim Berners-Lee invente le World Wide Web, qui permet d’accéder facilement à des pages web via des navigateurs. Internet tel que nous le connaissons aujourd’hui est né à ce moment-là.</p>
+
+            <h3 class="mt-4">Les deux grands types de réseaux</h3>
+            <ul>
+                <li><strong>Réseau privé :</strong> Réseau local restreint à une maison, une entreprise ou un campus. Il est généralement sécurisé, avec des adresses IP privées non accessibles depuis Internet.</li>
+                <li><strong>Réseau public :</strong> Réseau ouvert au public, comme Internet. Il est accessible depuis n’importe quel endroit du monde, mais aussi plus exposé aux menaces.</li>
+            </ul>
+
+            <h2 class="mt-5">L’identification des appareils sur un réseau</h2>
+            <p>Pour qu’un appareil puisse être reconnu et communiquer dans un réseau, il doit posséder des identifiants uniques. On en distingue principalement deux :</p>
+            <ul>
+                <li><strong>L’adresse IP</strong> (Internet Protocol), qui peut changer et identifier temporairement un appareil sur un réseau</li>
+                <li><strong>L’adresse MAC</strong> (Media Access Control), une identification matérielle fixe attribuée à la carte réseau de l’appareil</li>
+            </ul>
+
+            <h3 class="mt-4">L’adresse IP : l’identifiant logique et temporaire</h3>
+            <p>Une adresse IP est une suite de chiffres permettant d’identifier un appareil dans un réseau. Elle est attribuée dynamiquement par un serveur DHCP ou manuellement configurée.</p>
+            <p>Exemple d’adresse IPv4 : <code>192.168.0.14</code></p>
+
+            <h5>Types d’adresses IP :</h5>
+            <ul>
+                <li><strong>IP privée :</strong> Utilisée à l’intérieur d’un réseau local. Ces adresses ne sont pas accessibles depuis Internet (exemple : <code>192.168.x.x</code>).</li>
+                <li><strong>IP publique :</strong> Attribuée par un fournisseur d’accès à Internet. Elle permet d’identifier le réseau local sur Internet.</li>
+            </ul>
+
+            <h5>Les limites d’IPv4 :</h5>
+            <p>Le protocole IPv4 permet environ 4,3 milliards d’adresses. Or, avec la croissance exponentielle des objets connectés (IoT), cette capacité est rapidement devenue insuffisante.</p>
+
+            <h5>La solution IPv6 :</h5>
+            <p>Le protocole IPv6 offre un espace d’adressage beaucoup plus vaste, avec 2<sup>128</sup> combinaisons possibles. Il permet de mieux gérer les connexions et les performances sur les réseaux modernes.</p>
+
+            <h3 class="mt-4">L’adresse MAC : l’identifiant physique et permanent</h3>
+            <p>Chaque carte réseau (Wi-Fi, Ethernet) possède une adresse MAC, attribuée en usine. Cette adresse est unique à chaque appareil et reste la même, quelle que soit l’adresse IP utilisée.</p>
+            <p>Une adresse MAC est composée de 12 caractères hexadécimaux (chiffres et lettres A-F), répartis en deux blocs de 6 :</p>
+            <ul>
+                <li>Les 6 premiers caractères : identifient le fabricant (ex. : Apple, Intel, etc.)</li>
+                <li>Les 6 derniers caractères : numéro de série propre à l’appareil</li>
+            </ul>
+            <p>Exemple : <code>A4:C3:F0:85:AC:2D</code></p>
+
+            <h3 class="mt-4">Le spoofing : usurpation d’identité réseau</h3>
+            <p>Le spoofing MAC consiste à modifier l’adresse MAC d’un appareil pour se faire passer pour un autre. Cela peut être fait pour contourner des restrictions d’accès ou intercepter des communications.</p>
+            <p>Exemple : dans un hôtel où seule l’adresse MAC d’un client est autorisée sur le Wi-Fi, une autre personne peut usurper cette adresse pour bénéficier de l’accès sans payer. Si le système de sécurité ne vérifie pas d’autres paramètres, la connexion peut être détournée.</p>
+            <p>Le spoofing peut également être utilisé à des fins malveillantes, comme accéder à un réseau sécurisé, contourner un filtrage ou brouiller l’analyse de trafic réseau.</p>
+
+            <h2 class="mt-5">L’outil Ping : tester la connectivité</h2>
+            <p>Ping est une commande réseau permettant de tester la connectivité entre deux appareils. Elle utilise le protocole ICMP (Internet Control Message Protocol), qui sert à envoyer des messages de diagnostic ou d’erreur sur un réseau.</p>
+
+            <h5>Fonctionnement de Ping :</h5>
+            <ol>
+                <li>L’ordinateur envoie un message ICMP appelé "Echo Request" à une adresse IP cible.</li>
+                <li>Si la machine cible est accessible, elle répond par un message "Echo Reply".</li>
+                <li>Le temps entre l’envoi et la réponse est mesuré. Il est exprimé en millisecondes (ms).</li>
+            </ol>
+
+            <h5>Utilité de Ping :</h5>
+            <ul>
+                <li>Vérifier qu’un appareil est connecté au réseau</li>
+                <li>Tester la qualité de la connexion (latence)</li>
+                <li>Diagnostiquer une panne ou une perte de connexion</li>
+            </ul>
+
+            <p>Si le ping échoue (absence de réponse), cela peut indiquer un problème de connexion, une coupure réseau, un pare-feu bloquant l’accès ou un appareil éteint.</p>
+
+            <h2 class="mt-5">Conclusion</h2>
+            <p>Les réseaux informatiques sont à la base de notre vie numérique quotidienne. Que ce soit pour accéder à un site web, partager un fichier ou contrôler un appareil à distance, tout repose sur des échanges de données structurés et sécurisés.</p>
+            <ul>
+                <li>Les réseaux permettent à des appareils de communiquer ensemble localement ou à l’échelle mondiale via Internet.</li>
+                <li>Les adresses IP et MAC permettent d’identifier et de suivre les appareils sur un réseau.</li>
+                <li>Le spoofing montre l’importance de sécuriser l’identification des machines.</li>
+                <li>L’outil Ping est un moyen simple mais efficace de tester l’état d’une connexion réseau.</li>
+            </ul>
+            <p>Comprendre ces bases est essentiel pour naviguer, dépanner et sécuriser son environnement numérique.</p>
+        </div>
+    </section>
+
+    <footer>
+        <!-- Le footer sera inséré dynamiquement ici -->
+    </footer>
+
+    <script src="../js/scripts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>

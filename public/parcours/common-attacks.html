@@ -1,28 +1,149 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <title>Exemple</title>
-        <link href="../css/styles.css" rel="stylesheet" />
-    </head>
-    <body class="d-flex flex-column h-100">
-        <header>
-            <!-- Le header sera inséré dynamiquement ici -->
-        </header>
-        <main class="flex-shrink-0">
-            <!-- Le contenu principal de la page -->
-            <section class="py-5">
-                <div class="container px-5 my-5">
-                    <h1 class="fw-bolder">Exemple de contenu</h1>
-                    <p class="lead">Ceci est un exemple de contenu pour la page.</p>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Common attacks</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body class="d-flex flex-column h-100">
+    <header>
+        <!-- Le header sera inséré dynamiquement ici -->
+    </header>
+
+    <section class="py-5">
+        <div class="container px-5 my-5">
+            <div class="mb-5">
+                <div class="ratio ratio-16x9">
+                    <iframe src="https://youtu.be/gOrJo8_kc1s" title="Vidéo de présentation" allowfullscreen></iframe>
                 </div>
-            </section>
-        </main>
-        <footer>
-            <!-- Le footer sera inséré dynamiquement ici -->
-        </footer>
-        <script src="../js/scripts.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    </body>
+            </div>
+            <div class="mb-5">
+                <h1 class="fw-bolder mb-4">Commons attacks</h1>
+                <p class="lead">Entre virus, phishing, ransomware et WiFi public, le monde numérique regorge de pièges. Cet article te guide pour comprendre les menaces et te défendre efficacement.</p>
+            </div>
+
+            <h2 class="mt-5">L’ingénierie sociale : manipuler l’humain</h2>
+            <p>Plutôt que d’attaquer les systèmes, certaines cyberattaques visent directement les utilisateurs. L’ingénierie sociale repose sur la manipulation psychologique pour obtenir des informations sensibles.</p>
+            <p><strong>Exemple marquant :</strong> le virus <em>Stuxnet</em> (2009), transmis via des clés USB abandonnées, a infiltré un réseau sans accès Internet pour saboter des infrastructures nucléaires iraniennes.</p>
+            <p><strong>Conseils :</strong></p>
+            <ul>
+                <li>Utiliser l’authentification multi-facteurs</li>
+                <li>Ne jamais brancher de supports inconnus</li>
+                <li>Vérifier l'identité de toute personne demandant des infos sensibles</li>
+            </ul>
+
+            <h2 class="mt-5">Phishing : l’art de la tromperie numérique</h2>
+            <p>Le phishing utilise emails, SMS ou appels pour inciter la victime à révéler ses identifiants ou installer un malware.</p>
+
+            <h5>Types de phishing</h5>
+            <ul>
+                <li><strong>Phishing général :</strong> Attaque massive, souvent grossière</li>
+                <li><strong>Spearphishing :</strong> Ciblage précis avec messages convaincants</li>
+                <li><strong>Whaling :</strong> Vise les dirigeants ou cibles de haut niveau</li>
+            </ul>
+
+            <h5>Signes révélateurs d’une attaque</h5>
+            <ul>
+                <li>Fautes d’orthographe ou tournures maladroites</li>
+                <li>Nom de domaine douteux (ex. : amaz0n.com)</li>
+                <li>Liens suspects masqués dans les emails</li>
+            </ul>
+
+            <h5>Se protéger efficacement</h5>
+            <ul>
+                <li>Ne pas cliquer sur des liens ou pièces jointes douteux</li>
+                <li>Mettre à jour antivirus et logiciels</li>
+                <li>Utiliser des adresses emails temporaires pour les inscriptions à risque</li>
+            </ul>
+
+            <h2 class="mt-5">Malwares et ransomwares</h2>
+            <p>Un malware est un logiciel malveillant utilisé pour voler, espionner ou bloquer l'accès aux données.</p>
+
+            <h5>Types et méthodes de propagation</h5>
+            <ul>
+                <li><strong>Phishing :</strong> Email contenant une pièce jointe ou un lien infecté</li>
+                <li><strong>Fichiers exécutables :</strong> .exe, .pdf, .js, scripts PowerShell</li>
+                <li><strong>Vulnérabilités :</strong> Exploitation de failles logicielles</li>
+            </ul>
+
+            <h5>Ransomware</h5>
+            <p>Ce type de malware chiffre les fichiers et demande une rançon. Exemple célèbre : <strong>WannaCry</strong>.</p>
+
+            <h5>Mesures de prévention</h5>
+            <ul>
+                <li>Sauvegardes régulières (voir règle 3-2-1 ci-dessous)</li>
+                <li>Ne jamais ouvrir de fichiers inconnus</li>
+                <li>Ne jamais payer la rançon</li>
+            </ul>
+
+            <h2 class="mt-5">La sécurité des mots de passe</h2>
+            <p>Un bon mot de passe est long, complexe et unique.</p>
+            <ul>
+                <li><strong>Fort :</strong> <code>@Ed1nburgh#1988-2000!</code></li>
+                <li><strong>Très fort :</strong> Une phrase longue et unique ou générée par un gestionnaire</li>
+            </ul>
+            <p>Utilise un gestionnaire de mots de passe (1Password, Bitwarden, etc.) pour éviter la réutilisation.</p>
+
+            <h5>Attaques fréquentes</h5>
+            <ul>
+                <li>Brute force</li>
+                <li>Credential stuffing (utilisation de données volées)</li>
+                <li>Hameçonnage ciblé</li>
+            </ul>
+
+            <h2 class="mt-5">Authentification multi-facteurs (MFA)</h2>
+            <p>Elle renforce la sécurité en combinant plusieurs facteurs :</p>
+            <ul>
+                <li>Quelque chose que vous savez (mot de passe)</li>
+                <li>Quelque chose que vous avez (TOTP, YubiKey)</li>
+                <li>Quelque chose que vous êtes (empreinte, visage)</li>
+            </ul>
+            <p>⚠️ Les SMS sont vulnérables (SIM swapping), privilégie des apps comme <strong>Authy</strong> ou <strong>Google Authenticator</strong>.</p>
+
+            <h2 class="mt-5">WiFi public & connexions sécurisées</h2>
+            <p>Les réseaux publics sont risqués. Des attaques de type <em>man-in-the-middle</em> peuvent intercepter tes données.</p>
+
+            <h5>Comment se protéger ?</h5>
+            <ul>
+                <li>Évite les réseaux inconnus</li>
+                <li>Utilise un VPN (ProtonVPN, Mullvad...)</li>
+                <li>Vérifie toujours le <strong>HTTPS</strong> dans l’URL</li>
+            </ul>
+
+            <h2 class="mt-5">Règle de sauvegarde 3-2-1</h2>
+            <p>Pour protéger tes données :</p>
+            <ul>
+                <li>3 copies</li>
+                <li>2 types de support (ex. : disque dur + cloud)</li>
+                <li>1 copie hors site</li>
+            </ul>
+
+            <h2 class="mt-5">Mises à jour logicielles & antivirus</h2>
+            <p>Les mises à jour corrigent les failles de sécurité. L’exemple d’<strong>EternalBlue</strong> (exploitée par WannaCry) montre l’importance d’appliquer les correctifs à temps.</p>
+
+            <h5>Bonnes pratiques :</h5>
+            <ul>
+                <li>Met à jour tous tes logiciels régulièrement</li>
+                <li>Remplace les systèmes obsolètes (ex : Windows 7)</li>
+                <li>Maintiens ton antivirus à jour pour détecter les nouvelles menaces</li>
+            </ul>
+
+            <h2 class="mt-5">En résumé</h2>
+            <ol>
+                <li><strong>Comprendre les attaques :</strong> phishing, malware, ransomware, ingénierie sociale</li>
+                <li><strong>Se défendre :</strong> MFA, mots de passe forts, VPN, sauvegardes régulières</li>
+                <li><strong>Mettre à jour :</strong> OS, logiciels, antivirus</li>
+                <li><strong>Adopter les bons réflexes :</strong> prudence sur les liens, pièces jointes et WiFi publics</li>
+            </ol>
+        </div>
+    </section>
+
+    <footer>
+        <!-- Le footer sera inséré dynamiquement ici -->
+    </footer>
+
+    <script src="../js/scripts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>
