@@ -6,23 +6,73 @@
         <title>Exemple</title>
         <link href="../css/styles.css" rel="stylesheet" />
     </head>
+    <header>
+        <!-- Le header sera inséré dynamiquement ici -->
+    </header>
     <body class="d-flex flex-column h-100">
-        <header>
-            <!-- Le header sera inséré dynamiquement ici -->
-        </header>
+
         <main class="flex-shrink-0">
-            <!-- Le contenu principal de la page -->
             <section class="py-5">
                 <div class="container px-5 my-5">
-                    <h1 class="fw-bolder">Exemple de contenu</h1>
-                    <p class="lead">Ceci est un exemple de contenu pour la page.</p>
+                    <div class="mb-5">
+                        <h1 class="mb-4">Structure de notre page web</h1>
+    
+                        <p>
+                            Pour notre SAE, nous avons conçu une page web structurée de manière claire et responsive grâce à l'utilisation de Bootstrap. Voici les principales parties qui composent notre page :
+                        </p>
+    
+                        <h2 class="mt-5">1. L'en-tête dynamique</h2>
+                        <p>
+                            La balise <code>&lt;header&gt;</code> accueille un en-tête généré dynamiquement par JavaScript, partagé entre plusieurs pages pour une meilleure maintenabilité.
+                        </p>
+    <pre><code>&lt;header&gt;
+        &lt;!-- Le header sera inséré dynamiquement ici --&gt;
+    &lt;/header&gt;
+    </code></pre>
+    
+                        <h2 class="mt-5">2. Le corps principal</h2>
+                        <p>
+                            Le contenu est structuré à l’aide d’un conteneur Bootstrap pour assurer une mise en page propre et fluide. On y trouve des titres, paragraphes et listes pour organiser le texte.
+                        </p>
+    
+    <pre><code>&lt;section class="py-5"&gt;
+        &lt;div class="container px-5 my-5"&gt;
+            ...
+        &lt;/div&gt;
+    &lt;/section&gt;
+    </code></pre>
+    
+                        <h2 class="mt-5">3. Le pied de page</h2>
+                        <p>
+                            Comme l’en-tête, le pied de page est inséré dynamiquement avec JavaScript. Il est situé en dehors du <code>&lt;body&gt;</code>, selon ta demande.
+                        </p>
+    <pre><code>&lt;footer&gt;
+        &lt;!-- Le footer sera inséré dynamiquement ici --&gt;
+    &lt;/footer&gt;
+    </code></pre>
+    
+                        <h2 class="mt-5">4. Les scripts</h2>
+                        <p>
+                            En bas de page, nous avons inclus les scripts nécessaires pour le fonctionnement des composants Bootstrap et notre logique personnalisée.
+                        </p>
+    <pre><code>&lt;script src="../js/scripts.js"&gt;&lt;/script&gt;
+    &lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;
+    </code></pre>
+    
+                        <h2 class="mt-5">5. Structure globale</h2>
+                        <p>
+                            Les pages complémentaires sont situées sur la page d'accueil, et chaque présentation de room est accessible via un menu de navigation.
+                        </p>
+
+                    </div>
                 </div>
             </section>
         </main>
-        <footer>
-            <!-- Le footer sera inséré dynamiquement ici -->
-        </footer>
+    
         <script src="../js/scripts.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     </body>
+    <footer>
+        <!-- Le footer sera inséré dynamiquement ici -->
+    </footer>       
 </html>
