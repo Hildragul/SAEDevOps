@@ -9,109 +9,59 @@
     <body class="d-flex flex-column h-100">
         <section class="py-5">
             <div class="container px-5 my-5">
-                <div class="mb-5">
-                    <div class="ratio ratio-16x9">
-                        <iframe src="https://www.youtube.com/embed/1minutefreecode" title="Vidéo de présentation Linux" allowfullscreen></iframe>
-                    </div>
+                <h1 class="fw-bolder mb-4">Mise en place d'une connexion VPN sur Linux pour utiliser RDP avec TryHackMe</h1>
+
+                <h2 class="mt-5">Étape 1 : Téléchargement du fichier de configuration OpenVPN</h2>
+
+                <p>Connectez-vous sur TryHackMe</p>
+                <p>Accédez à la section "Access" depuis le tableau de bord (l'adresse : https://tryhackme.com/access)</p>
+                <p>Téléchargez le fichier de configuration OpenVPN (.ovpn) correspondant à votre région</p>
+                </br>
+                <div class="col-6">
+                    <img src="../img/vpnImage.png" class="rounded" alt="Logo HTML w3" style="width:100%; height:auto">
+                 </div>
+                <h2 class="mt-5">Étape 2 : Installation d'OpenVPN</h2>
+
+                <p><code>sudo apt install openvpn</code></p>
+        
+                <h2 class="mt-5">Étape 3 : Connexion au VPN TryHackMe</h2>
+                <p>Placez-vous dans le répertoire où se trouve le fichier .ovpn téléchargé</p>
+
+                <p>Exécutez la commande suivante :</p>
+
+                <p><code>sudo openvpn votre_fichier.ovpn</code></p>
+
+                <p>Laissez OpenVPN tourner en arrière-plan tant que vous utilisez THM</p>
+
+                <h2 class="mt-5">Étape 4 : Vérification de la connexion VPN</h2>
+
+                <p>Après avoir lancé OpenVPN, vous devriez voir une sortie indiquant "Initialization Sequence Completed". Vérifiez votre adresse IP pour vous assurer que vous êtes bien connecté au VPN THM :</p>
+                <div class="col-6">
+                    <img src="../img/vpn_background.png" class="rounded" alt="Logo HTML w3" style="width:100%; height:auto">
                 </div>
-                <h1 class="fw-bolder mb-4">Bienvenue dans "Linux Fundamentals Part I"</h1>
-                <p class="lead">Aujourd’hui, on découvre ensemble les bases de Linux, un système d’exploitation ultra présent dans le monde, des serveurs aux smartphones.</p>
+
+                <p> Vérifiez votre adresse IP pour vous assurer que vous êtes bien connecté au VPN THM :</p>
+                <p><code>ip a | grep tun0</code></p>
+                <p>Si une interface tun0 est affichée, la connexion est établie.</p>
         
-                <h2 class="mt-5">Objectifs de cette première partie</h2>
-                <ul>
-                    <li>Exécuter nos premières commandes sur une machine Linux interactive</li>
-                    <li>Apprendre à naviguer dans les fichiers et dossiers</li>
-                    <li>Utiliser des outils puissants comme <code>find</code> et <code>grep</code></li>
-                </ul>
-                <p>L’objectif ? Te rendre à l’aise avec les bases de Linux pour aller encore plus loin par la suite.</p>
+                <h2 class="mt-5">Étape 5 : Installation d'un client RDP</h2>
+                <p>Pour accéder à une machine via RDP, vous avez besoin d'un client RDP. On va utiliser remmina</p>
+                <p><code>sudo apt install remmina</code></p>
+                <h2 class="mt-5">Étape 6 : Connexion à une machine THM en RDP</h2>
+                <p>Ouvrez remmina</p>
+
+                <div class="col-6">
+                    <img src="../img/remmina.png" class="rounded" alt="Logo HTML w3" style="width:100%; height:auto">
+                </div>
+
+                <p>Ajoutez une nouvelle connexion RDP</p>
+                <p>Saisissez l'adresse IP de la machine THM attribuée</p>
+                <p>Indiquez les identifiants fournis par THM</p>
+                <p>Enregistrez et connectez-vous</p>
         
-                <h2 class="mt-5">Où trouve-t-on Linux ?</h2>
-                <p>Linux est plus répandu qu’on ne le croit. Même si on ne le voit pas directement, il alimente :</p>
-                <ul>
-                    <li>Les sites web qu’on consulte</li>
-                    <li>Les systèmes embarqués dans les voitures</li>
-                    <li>Les caisses enregistreuses</li>
-                    <li>Des infrastructures critiques comme les feux de circulation</li>
-                </ul>
-        
-                <h2 class="mt-5">Les différentes versions de Linux</h2>
-                <p>Linux n’est pas un système unique, mais une famille de distributions basées sur UNIX. Grâce à son code open-source, il existe des variantes pour tous les usages :</p>
-                <ul>
-                    <li>🔹 <strong>Ubuntu & Debian</strong> : pour serveurs ou postes de travail</li>
-                    <li>🔹 <strong>Ubuntu Server</strong> : peut fonctionner avec seulement 512 Mo de RAM !</li>
-                </ul>
-                <p>Dans cette série, nous utiliserons principalement <strong>Ubuntu</strong>.</p>
-        
-                <h2 class="mt-5">Petit retour en arrière…</h2>
-                <p>Le noyau Linux a été créé en 1991 par <strong>Linus Torvalds</strong>. Depuis, il a évolué pour devenir un pilier du monde informatique moderne.</p>
-        
-                <h2 class="mt-5">Linux sans interface graphique ?</h2>
-                <p>Linux est souvent utilisé sans interface graphique (GUI). On travaille directement via le <strong>Terminal</strong>.</p>
-                <h5>Le Terminal, c’est quoi ?</h5>
-                <p>Un environnement en ligne de commande qui permet :</p>
-                <ul>
-                    <li>De naviguer dans les fichiers et répertoires</li>
-                    <li>D'afficher ou manipuler du contenu</li>
-                    <li>D'exécuter des scripts ou installer des programmes</li>
-                </ul>
-                <p>Pour commencer, voici deux commandes simples :</p>
-                <ul>
-                    <li><code>echo "Hello World"</code> - Affiche un message dans le terminal</li>
-                    <li><code>whoami</code> – Affiche ton nom d’utilisateur</li>
-                </ul>
-        
-                <h2 class="mt-5">Naviguer et interagir avec les fichiers</h2>
-                <p>Voici quelques commandes essentielles à connaître :</p>
-                <ul>
-                    <li><code>ls</code> – Lister les fichiers d’un répertoire</li>
-                    <li><code>cd</code> – Se déplacer dans un dossier</li>
-                    <li><code>pwd</code> – Afficher le chemin actuel</li>
-                    <li><code>cat</code> – Lire le contenu d’un fichier</li>
-                </ul>
-        
-                <h2 class="mt-5">Recherche efficace sous Linux</h2>
-                <p>Deux commandes très puissantes :</p>
-                <ul>
-                    <li><code>find</code> – Pour retrouver des fichiers dans l’arborescence</li>
-                    <li><code>grep</code> – Pour chercher du texte à l’intérieur des fichiers</li>
-                </ul>
-        
-                <h2 class="mt-5">Les opérateurs du Shell</h2>
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th>Opérateur</th>
-                            <th>Description</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><code>&</code></td>
-                            <td>Exécute une commande en arrière-plan</td>
-                        </tr>
-                        <tr>
-                            <td><code>&&</code></td>
-                            <td>Exécute la commande suivante seulement si la précédente réussit</td>
-                        </tr>
-                        <tr>
-                            <td><code>></code></td>
-                            <td>Redirige la sortie d'une commande vers un fichier (remplace le contenu)</td>
-                        </tr>
-                        <tr>
-                            <td><code>>></code></td>
-                            <td>Ajoute la sortie à un fichier sans écraser l'existant</td>
-                        </tr>
-                    </tbody>
-                </table>
-        
-                <h2 class="mt-5">En résumé</h2>
-                <ol>
-                    <li><strong>Pourquoi Linux est si répandu ?</strong><br>Un système fiable, gratuit et adaptable à tous les besoins.</li>
-                    <li><strong>Première interaction avec une machine Linux :</strong> <code>ls</code>, <code>cd</code>, <code>cat</code>, <code>pwd</code>.</li>
-                    <li><strong>Commandes de base :</strong> pour manipuler fichiers et répertoires.</li>
-                    <li><strong>find & grep :</strong> pour faire des recherches précises dans le système.</li>
-                    <li><strong>Les opérateurs :</strong> pour automatiser et optimiser les tâches en ligne de commande.</li>
-                </ol>
+                <h2 class="mt-5">Conclusion</h2>
+                <p>Vous êtes maintenant connecté au VPN de TryHackMe et pouvez utiliser RDP pour accéder aux machines. Pensez à fermer votre session OpenVPN lorsque vous avez terminé avec :</p>
+                <p><code>sudo killall openvpn</code></p>
             </div>
         </section>
         
