@@ -1,28 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <title>Exemple</title>
-        <link href="../css/styles.css" rel="stylesheet" />
-    </head>
-    <body class="d-flex flex-column h-100">
-        <header>
-            <!-- Le header sera inséré dynamiquement ici -->
-        </header>
-        <main class="flex-shrink-0">
-            <!-- Le contenu principal de la page -->
-            <section class="py-5">
-                <div class="container px-5 my-5">
-                    <h1 class="fw-bolder">Exemple de contenu</h1>
-                    <p class="lead">Ceci est un exemple de contenu pour la page.</p>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>DNS In Detail</title>
+    <link href="../css/styles.css" rel="stylesheet" />
+</head>
+<body class="d-flex flex-column h-100">
+    <header>
+        <!-- Le header sera inséré dynamiquement ici -->
+    </header>
+    <main class="flex-shrink-0">
+        <section class="py-5">
+            <div class="container px-5 my-5">
+                <div class="mb-4">
+                    <iframe width="100%" height="400" src="https://www.youtube.com/embed/nJD70aoPmnw"
+                            title="DNS In Detail" frameborder="0" allowfullscreen></iframe>
                 </div>
-            </section>
-        </main>
-        <footer>
-            <!-- Le footer sera inséré dynamiquement ici -->
-        </footer>
-        <script src="../js/scripts.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    </body>
+                <h1 class="fw-bolder">Room : DNS In detail</h1>
+
+                <h2 class="mt-4">Contexte général de la room</h2>
+                <p>Cette room d’introduction à DNS sur TryHackMe a pour objectif de nous familiariser avec le fonctionnement du Domain Name System. Elle est pensée pour les débutants et explique étape par étape comment fonctionne le système de noms de domaine sur Internet. Chaque "Task" (ou tâche) explore un concept différent, et nous permet de répondre à des questions pour valider nos acquis.</p>
+
+                <h2 class="mt-4">Ce que j’ai compris de la room</h2>
+                <p>DNS, c’est un des piliers fondamentaux du web : il permet à l’utilisateur de naviguer sur Internet sans avoir à retenir des adresses IP compliquées. Au lieu d’entrer une suite de chiffres (comme 104.26.10.229), on peut simplement taper un nom de domaine lisible comme tryhackme.com.</p>
+
+                <hr class="my-4" />
+
+                <h3>Task 1 – What is DNS?</h3>
+                <p><strong>Résumé de la tâche :</strong> Cette première partie introduit la notion de DNS. On apprend qu’il fonctionne comme un répertoire téléphonique géant pour l’Internet. Chaque site web possède une adresse IP (comme une adresse postale pour un bâtiment), mais au lieu de retenir cette suite de chiffres, on utilise un nom de domaine bien plus facile à mémoriser.</p>
+                <p><strong>Ce que j’ai retenu :</strong></p>
+                <ul>
+                    <li>DNS signifie Domain Name System.</li>
+                    <li>Il agit comme un traducteur entre noms de domaine et adresses IP.</li>
+                    <li>Il rend l’Internet plus accessible et plus humain.</li>
+                </ul>
+                <p><strong>Réponse à la question posée :</strong> Domain Name System</p>
+
+                <h3>Task 2 – Domain Hierarchy</h3>
+                <p><strong>Résumé de la tâche :</strong> Cette tâche présente la structure hiérarchique des noms de domaine, qui se compose de plusieurs niveaux :</p>
+                <ul>
+                    <li>TLD (Top-Level Domain) : c’est la partie la plus à droite d’un nom de domaine, comme .com, .org, .fr, etc. Il existe des gTLDs (génériques) comme .com ou .edu, et des ccTLDs (liés aux pays) comme .fr ou .co.uk.</li>
+                    <li>Second-Level Domain : c’est la partie située juste avant le TLD, comme tryhackme dans tryhackme.com.</li>
+                    <li>Subdomain : c’est ce qui vient avant le second-level domain, comme admin dans admin.tryhackme.com. On peut même empiler plusieurs subdomains (x.y.z.example.com).</li>
+                </ul>
+                <p>Chaque niveau suit des règles de longueur et de caractères utilisables. Notamment :</p>
+                <ul>
+                    <li>Un subdomain ou un second-level domain peut contenir jusqu’à 63 caractères.</li>
+                    <li>Les noms de domaine complets (nom + sous-domaines) doivent rester sous 253 caractères.</li>
+                    <li>Certains caractères comme _ (underscore) ne sont pas valides dans les sous-domaines.</li>
+                </ul>
+                <p><strong>Questions et réponses :</strong></p>
+                <ul>
+                    <li>Q1 : What is the maximum length of a subdomain? <strong>R :</strong> 63</li>
+                    <li>Q2 : Which of the following characters cannot be used in a subdomain ( 3 b _ - )? <strong>R :</strong> _</li>
+                    <li>Q3 : What is the maximum length of a domain name? <strong>R :</strong> 253</li>
+                    <li>Q4 : What type of TLD is .co.uk? <strong>R :</strong> ccTLD</li>
+                </ul>
+
+                <h3>Task 3 – Record Types</h3>
+                <p><strong>Résumé de la tâche :</strong> Ici, on découvre les types de records DNS, qui sont des enregistrements spécifiques permettant de répondre à différents besoins, pas seulement pour naviguer sur des sites web.</p>
+                <p>Voici les principaux types vus dans cette tâche :</p>
+                <ul>
+                    <li>A Record : lie un nom de domaine à une adresse IPv4 (ex. : 104.26.10.229).</li>
+                    <li>AAAA Record : fait la même chose que le A Record mais pour une adresse IPv6 (ex. : 2606:4700:20::681a:be5).</li>
+                    <li>CNAME Record : redirige vers un autre nom de domaine.</li>
+                    <li>MX Record : indique quels serveurs s’occupent de la réception des emails pour un domaine.</li>
+                    <li>TXT Record : permet de stocker du texte libre pour de nombreuses utilisations.</li>
+                </ul>
+                <p><strong>Questions et réponses :</strong></p>
+                <ul>
+                    <li>Q1 : What type of record would be used to advise where to send email? <strong>R :</strong> MX</li>
+                    <li>Q2 : What type of record handles IPv6 addresses? <strong>R :</strong> AAAA</li>
+                </ul>
+
+                <h3>Task 4 – Making a Request</h3>
+                <p><strong>Résumé de la tâche :</strong> Dans cette tâche, on découvre le parcours complet d’une requête DNS, depuis notre ordinateur jusqu’au serveur qui détient la bonne information.</p>
+                <ol>
+                    <li>Vérification du cache local de l’ordinateur</li>
+                    <li>Si pas trouvé, envoi à un serveur DNS récursif (FAI)</li>
+                    <li>Ce serveur interroge :
+                        <ul>
+                            <li>les serveurs DNS racine</li>
+                            <li>puis les serveurs TLD</li>
+                            <li>puis les serveurs autoritatifs</li>
+                        </ul>
+                    </li>
+                    <li>La réponse est mise en cache puis envoyée au client</li>
+                </ol>
+                <p><strong>Questions et réponses :</strong></p>
+                <ul>
+                    <li>Q1 : What field specifies how long a DNS record should be cached for? <strong>R :</strong> TTL</li>
+                    <li>Q2 : What type of DNS Server is usually provided by your ISP? <strong>R :</strong> Recursive</li>
+                    <li>Q3 : What type of server holds all the records for a domain? <strong>R :</strong> Authoritative</li>
+                </ul>
+
+                <h3>Task 5 – Practical</h3>
+                <p><strong>Résumé de la tâche :</strong> Cette dernière tâche propose une mise en pratique directe via une interface web. Elle permet d’envoyer de véritables requêtes DNS et d’en observer les réponses en temps réel, avec des outils comme nslookup, dig ou host.</p>
+                <p><strong>Questions à compléter avec tes résultats :</strong></p>
+                <ul>
+                    <li>Q1 : What is the CNAME of shop.website.thm ? <strong>R :</strong> shops.myshopify.com</li>
+                    <li>Q2 : What is the value of the TXT record of website.thm ? <strong>R :</strong> THM{7012BBA60997F35A9516C2E16D2944FF}</li>
+                    <li>Q3 : What is the numerical priority value for the MX record ? <strong>R :</strong> 30</li>
+                    <li>Q4 : What is the IP address for the A record of www.website.thm ? <strong>R :</strong> 10.10.10.10</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <!-- Le footer sera inséré dynamiquement ici -->
+    </footer>
+    <script src="../js/scripts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>

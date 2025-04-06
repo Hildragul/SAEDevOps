@@ -1,28 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <title>Exemple</title>
-        <link href="../css/styles.css" rel="stylesheet" />
-    </head>
-    <body class="d-flex flex-column h-100">
-        <header>
-            <!-- Le header sera inséré dynamiquement ici -->
-        </header>
-        <main class="flex-shrink-0">
-            <!-- Le contenu principal de la page -->
-            <section class="py-5">
-                <div class="container px-5 my-5">
-                    <h1 class="fw-bolder">Exemple de contenu</h1>
-                    <p class="lead">Ceci est un exemple de contenu pour la page.</p>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>HTTP In Detail</title>
+    <link href="../css/styles.css" rel="stylesheet" />
+</head>
+<body class="d-flex flex-column h-100">
+    <header>
+        <!-- Le header sera inséré dynamiquement ici -->
+    </header>
+    <main class="flex-shrink-0">
+        <section class="py-5">
+            <div class="container px-5 my-5">
+                <div class="mb-4">
+                    <iframe width="100%" height="400" src="https://www.youtube.com/embed/7VFqbpHm8YQ"
+                        title="HTTP In Detail" frameborder="0" allowfullscreen></iframe>
                 </div>
-            </section>
-        </main>
-        <footer>
-            <!-- Le footer sera inséré dynamiquement ici -->
-        </footer>
-        <script src="../js/scripts.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    </body>
+                <h1 class="fw-bolder">Room : HTTP in Detail</h1>
+
+                <h2 class="mt-4">Contexte général de la room</h2>
+                <p>Cette room explore en profondeur le protocole HTTP(S), la base de la communication web. Elle a pour objectif de comprendre comment les navigateurs web et les serveurs échangent les données, et ce qui différencie HTTP de sa version sécurisée, HTTPS. C’est une étape essentielle pour toute personne qui souhaite comprendre la sécurité et le fonctionnement des sites web.</p>
+
+                <hr class="my-4"/>
+
+                <h3>Task 1 – What is HTTP(S)?</h3>
+                <p><strong>Résumé de la tâche :</strong></p>
+                <ul>
+                    <li>HTTP (HyperText Transfer Protocol) est le protocole utilisé pour accéder à du contenu sur le web : pages HTML, images, vidéos, etc.</li>
+                    <li>HTTPS (HyperText Transfer Protocol Secure) est la version sécurisée de HTTP, qui chiffre les échanges de données pour assurer confidentialité, intégrité et authenticité.</li>
+                </ul>
+                <p><strong>Questions et réponses :</strong></p>
+                <ul>
+                    <li>Q1 : What does HTTP stand for? <strong>R :</strong> HyperText Transfer Protocol</li>
+                    <li>Q2 : What does the S in HTTPS stand for? <strong>R :</strong> Secure</li>
+                    <li>Q3 : What is the challenge flag? <strong>R :</strong> THM{INVALID_HTTP_CERT}</li>
+                </ul>
+
+                <h3>Task 2 – Requests and Responses</h3>
+                <p><strong>Résumé de la tâche :</strong></p>
+                <p><u>Partie 1 : La structure d’une URL</u></p>
+                <ul>
+                    <li>Scheme : le protocole utilisé</li>
+                    <li>User:Password : identifiants</li>
+                    <li>Host : nom de domaine ou IP</li>
+                    <li>Port : port du serveur</li>
+                    <li>Path : chemin vers la ressource</li>
+                    <li>Query string : paramètres</li>
+                    <li>Fragment : partie spécifique de la page</li>
+                </ul>
+                <p><u>Partie 2 : Requête HTTP</u></p>
+                <pre>GET / HTTP/1.1
+Host: tryhackme.com
+User-Agent: Mozilla/5.0 Firefox/87.0
+Referer: https://tryhackme.com/</pre>
+                <p><u>Partie 3 : Réponse HTTP</u></p>
+                <pre>HTTP/1.1 200 OK
+Server: nginx/1.15.8
+Date: Fri, 09 Apr 2021 13:34:03 GMT
+Content-Type: text/html
+Content-Length: 98</pre>
+                <p><strong>Questions et réponses :</strong></p>
+                <ul>
+                    <li>Q1 : What HTTP protocol is being used in the above example? <strong>R :</strong> HTTP/1.1</li>
+                    <li>Q2 : What response header tells the browser how much data to expect? <strong>R :</strong> Content-Length</li>
+                </ul>
+
+                <h3>Task 3 – HTTP Methods</h3>
+                <p><strong>Résumé de la tâche :</strong></p>
+                <ul>
+                    <li>GET : récupérer des informations</li>
+                    <li>POST : envoyer des données (ex. créer un compte)</li>
+                    <li>PUT : modifier des infos existantes</li>
+                    <li>DELETE : supprimer une ressource</li>
+                </ul>
+                <p><strong>Questions et réponses :</strong></p>
+                <ul>
+                    <li>Q1 : What method would be used to create a new user account? <strong>R :</strong> POST</li>
+                    <li>Q2 : What method would be used to update your email address? <strong>R :</strong> PUT</li>
+                    <li>Q3 : What method would be used to remove a picture you've uploaded to your account? <strong>R :</strong> DELETE</li>
+                    <li>Q4 : What method would be used to view a news article? <strong>R :</strong> GET</li>
+                </ul>
+
+                <h3>Task 4 – HTTP Status Codes</h3>
+                <p><strong>Résumé de la tâche :</strong></p>
+                <ul>
+                    <li>100-199 : Info</li>
+                    <li>200-299 : Succès</li>
+                    <li>300-399 : Redirections</li>
+                    <li>400-499 : Erreurs client</li>
+                    <li>500-599 : Erreurs serveur</li>
+                </ul>
+                <p><strong>Questions et réponses :</strong></p>
+                <ul>
+                    <li>Q1 : New user or blog post article? <strong>R :</strong> 201</li>
+                    <li>Q2 : Page not found? <strong>R :</strong> 404</li>
+                    <li>Q3 : App crash, server issue? <strong>R :</strong> 500</li>
+                    <li>Q4 : Editing profile without login? <strong>R :</strong> 401</li>
+                </ul>
+
+                <h3>Task 5 – Headers</h3>
+                <p><strong>Résumé de la tâche :</strong></p>
+                <p><u>Requête (client → serveur) :</u></p>
+                <ul>
+                    <li>Host</li>
+                    <li>User-Agent</li>
+                    <li>Content-Length</li>
+                    <li>Accept-Encoding</li>
+                    <li>Cookie</li>
+                </ul>
+                <p><u>Réponse (serveur → client) :</u></p>
+                <ul>
+                    <li>Set-Cookie</li>
+                    <li>Cache-Control</li>
+                    <li>Content-Type</li>
+                    <li>Content-Encoding</li>
+                </ul>
+                <p><strong>Questions et réponses :</strong></p>
+                <ul>
+                    <li>Q1 : What header tells the web server what browser is being used? <strong>R :</strong> User-Agent</li>
+                    <li>Q2 : What header tells the browser what type of data is being returned? <strong>R :</strong> Content-Type</li>
+                    <li>Q3 : What header tells the web server which website is being requested? <strong>R :</strong> Host</li>
+                </ul>
+
+                <h3>Task 6 – Cookies</h3>
+                <p><strong>Résumé de la tâche :</strong></p>
+                <ul>
+                    <li>Les cookies permettent de conserver des infos entre les requêtes (stateless)</li>
+                    <li>Set-Cookie → pour les envoyer au client</li>
+                    <li>Cookie → renvoyé au serveur à chaque requête</li>
+                </ul>
+                <p><strong>Question et réponse :</strong></p>
+                <ul>
+                    <li>Q : Which header is used to save cookies to your computer? <strong>R :</strong> Set-Cookie</li>
+                </ul>
+
+                <h3>Task 7 – Making Requests</h3>
+                <p><strong>Résumé de la tâche :</strong> Cette task est pratique : tu dois simuler différentes requêtes HTTP via un émulateur dans la room.</p>
+                <p><strong>Questions et réponses :</strong></p>
+                <ul>
+                    <li>Q1 : GET /room → <strong>R :</strong> THM{YOU'RE_IN_THE_ROOM}</li>
+                    <li>Q2 : GET /blog?id=1 → <strong>R :</strong> THM{YOU_FOUND_THE_BLOG}</li>
+                    <li>Q3 : DELETE /user/1 → <strong>R :</strong> THM{USER_IS_DELETED}</li>
+                    <li>Q4 : PUT /user/2 avec username=admin → <strong>R :</strong> THM{USER_HAS_UPDATED}</li>
+                    <li>Q5 : POST vers /login avec username=thm et password=letmein → <strong>R :</strong> THM{HTTP_REQUEST_MASTER}</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <!-- Le footer sera inséré dynamiquement ici -->
+    </footer>
+    <script src="../js/scripts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>
