@@ -3,26 +3,86 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <title>Exemple</title>
+        <title>Defensive security intro</title>
         <link href="../css/styles.css" rel="stylesheet" />
     </head>
+    <header>
+        <!-- Le header sera inséré dynamiquement ici -->
+    </header>
     <body class="d-flex flex-column h-100">
-        <header>
-            <!-- Le header sera inséré dynamiquement ici -->
-        </header>
         <main class="flex-shrink-0">
-            <!-- Le contenu principal de la page -->
-            <section class="py-5">
-                <div class="container px-5 my-5">
-                    <h1 class="fw-bolder">Exemple de contenu</h1>
-                    <p class="lead">Ceci est un exemple de contenu pour la page.</p>
-                </div>
-            </section>
+          <section class="py-5">
+            <div class="container px-5 my-5">
+      
+              <h1 class="mb-4">Defensive security Intro</h1>
+      
+              <p>
+                Dans cette salle, nous abordons la sécurité défensive, qui se concentre sur la prévention des intrusions et la détection des attaques lorsque celles-ci se produisent. Contrairement à la sécurité offensive, qui cherche à exploiter les vulnérabilités, la sécurité défensive vise à empêcher les attaques et à y répondre efficacement.
+              </p>
+      
+              <p>
+                Les tâches principales incluent la formation des utilisateurs à la cybersécurité pour éviter les erreurs humaines, la gestion des actifs pour savoir quoi protéger, ainsi que la mise à jour et le patching des systèmes pour corriger les failles connues. De plus, des dispositifs de sécurité tels que des pare-feu et des systèmes de prévention d'intrusion (IPS) sont utilisés pour bloquer les menaces avant qu'elles n'atteignent les systèmes.
+              </p>
+      
+              <p>
+                Enfin, la surveillance et la gestion des événements de sécurité sont essentielles pour détecter toute activité malveillante et y répondre rapidement. Cette approche permet de sécuriser l'infrastructure et de réagir de manière appropriée aux incidents.
+              </p>
+      
+              <h2 class="mt-5">Security Operations Center (SOC)</h2>
+      
+              <p>
+                Un SOC est une équipe de professionnels de la cybersécurité chargée de surveiller les réseaux et systèmes pour détecter les événements malveillants. Les principales tâches d'un SOC incluent :
+              </p>
+      
+              <ul>
+                <li>La gestion des vulnérabilités en installant des mises à jour et en prenant des mesures préventives.</li>
+                <li>La détection et la réponse aux violations de politiques de sécurité ou activités non autorisées.</li>
+                <li>La détection des intrusions réseau, en particulier lorsqu'un utilisateur clique sur un lien malveillant ou qu'un attaquant exploite un serveur vulnérable.</li>
+              </ul>
+      
+              <p>
+                Une partie essentielle du SOC est l’intelligence sur les menaces, qui consiste à collecter des informations sur les attaquants potentiels pour mieux se préparer à leurs actions. Cela inclut la collecte de données provenant de sources internes (journaux de réseau) et externes (forums publics) et leur analyse pour identifier les tactiques des attaquants.
+              </p>
+      
+              <h2 class="mt-5">Digital Forensics and Incident Response (DFIR)</h2>
+      
+              <p>
+                Le DFIR se concentre sur l'analyse des preuves après une cyberattaque et sur la manière d’y répondre efficacement.
+              </p>
+      
+              <h5>1. Digital Forensics</h5>
+              <p>
+                Il s'agit de l'application de la science pour analyser les preuves numériques. Cela inclut :
+              </p>
+              <ul>
+                <li>L’analyse des systèmes de fichiers, de la mémoire système, des journaux de systèmes et des logs réseau pour identifier l’attaque et ses auteurs.</li>
+              </ul>
+      
+              <h5>2. Incident Response</h5>
+              <p>
+                Cette phase décrit la procédure à suivre en cas de cyberattaque, visant à limiter les dégâts et à restaurer rapidement les systèmes affectés. Le processus suit plusieurs étapes : préparation, détection et analyse, confinement, éradication et récupération, puis activités post-incident.
+              </p>
+      
+              <h5>3. Malware Analysis</h5>
+              <p>
+                L’analyse des malwares permet de comprendre le fonctionnement des logiciels malveillants (virus, chevaux de Troie, ransomware, etc.). Cela se fait par analyse statique (étude du programme sans l’exécuter) ou analyse dynamique (exécution du programme dans un environnement contrôlé).
+              </p>
+      
+              <p>
+                Le SOC de cette banque utilise un outil de Security Information and Event Management (SIEM) pour collecter des informations et événements liés à la sécurité provenant de différentes sources, et les présenter dans un tableau de bord. Si le SIEM détecte quelque chose de suspect, il génère une alerte.
+              </p>
+      
+              <p>
+                L'analyste doit ensuite utiliser son expertise en cybersécurité pour déterminer quelles alertes sont réellement malveillantes. Ce processus implique d'examiner les événements dans le SIEM et de rechercher des indicateurs de compromission.
+              </p>
+      
+            </div>
+          </section>
         </main>
+      </body>
         <footer>
             <!-- Le footer sera inséré dynamiquement ici -->
         </footer>
         <script src="../js/scripts.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    </body>
 </html>
