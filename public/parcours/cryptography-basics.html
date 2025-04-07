@@ -1,28 +1,127 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <title>Exemple</title>
-        <link href="../css/styles.css" rel="stylesheet" />
-    </head>
-    <body class="d-flex flex-column h-100">
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cryptography Basics</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body class="py-5">
+    <div class="container px-5 my-5">
         <header>
             <!-- Le header sera inséré dynamiquement ici -->
         </header>
-        <main class="flex-shrink-0">
-            <!-- Le contenu principal de la page -->
-            <section class="py-5">
-                <div class="container px-5 my-5">
-                    <h1 class="fw-bolder">Exemple de contenu</h1>
-                    <p class="lead">Ceci est un exemple de contenu pour la page.</p>
-                </div>
-            </section>
-        </main>
-        <footer>
-            <!-- Le footer sera inséré dynamiquement ici -->
-        </footer>
-        <script src="../js/scripts.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    </body>
+        <div class="ratio ratio-16x9">
+            <iframe src="https://www.youtube.com/embed/7ZUjbYYg-ss" title="Vidéo de présentation" allowfullscreen></iframe>
+        </div>
+        <div class="mb-5">
+            <h1 class="fw-bolder mb-4">Introduction à la Cryptographie</h1>
+            <p class="lead">La cryptographie est une discipline essentielle de la cybersécurité. Elle permet de garantir la sécurité des échanges numériques, notamment en assurant la confidentialité, l’intégrité et l’authenticité des données échangées.</p>
+        </div>
+
+        <h2 class="mt-5">Qu'est-ce que la cryptographie ?</h2>
+        <p>La cryptographie est l’art de rendre un message illisible pour toute personne ne possédant pas l’autorisation de le lire. Elle protège les communications contre les interceptions, altérations ou usurpations. Elle repose sur des algorithmes mathématiques et l’utilisation de clés pour chiffrer et déchiffrer les données.</p>
+
+        <h2 class="mt-5">Structure de la série de modules</h2>
+        <p>Ce module est le premier d’une série de trois consacrée aux fondements de la cryptographie :</p>
+        <ol>
+            <li>Les bases de la cryptographie</li>
+            <li>La cryptographie à clé publique</li>
+            <li>Le hachage</li>
+        </ol>
+
+        <h2 class="mt-5">Objectifs pédagogiques</h2>
+        <p>À l’issue de ce module, vous serez capable de :</p>
+        <ul>
+            <li>Comprendre les concepts fondamentaux : chiffrement, clé, algorithme, etc.</li>
+            <li>Identifier les usages courants de la cryptographie dans la vie numérique</li>
+            <li>Expliquer le fonctionnement du chiffre de César</li>
+            <li>Différencier les méthodes de chiffrement symétrique et asymétrique</li>
+            <li>Appréhender les bases mathématiques de la cryptographie, comme le XOR et le modulo</li>
+        </ul>
+
+        <h2 class="mt-5">Applications concrètes de la cryptographie</h2>
+        <p>La cryptographie est utilisée quotidiennement, souvent sans que l’on en ait conscience :</p>
+        <ul>
+            <li><strong>Navigation sécurisée</strong> : lors de la connexion à un site en HTTPS, les identifiants et données sont chiffrés.</li>
+            <li><strong>Connexions distantes via SSH</strong> : les échanges entre client et serveur sont chiffrés de bout en bout.</li>
+            <li><strong>Transactions bancaires en ligne</strong> : le navigateur vérifie l’authenticité du certificat du serveur.</li>
+            <li><strong>Téléchargements de fichiers</strong> : les fonctions de hachage permettent de s’assurer de l’intégrité du contenu téléchargé.</li>
+        </ul>
+        <p>Elle est également encadrée par des normes réglementaires comme le PCI DSS pour les données bancaires ou le RGPD pour la protection des données personnelles.</p>
+
+        <h2 class="mt-5">Lexique fondamental</h2>
+        <ul>
+            <li><strong>Texte en clair (plaintext)</strong> : message initial lisible, avant tout chiffrement.</li>
+            <li><strong>Texte chiffré (ciphertext)</strong> : version illisible du message après chiffrement.</li>
+            <li><strong>Chiffre (cipher)</strong> : algorithme permettant de chiffrer ou déchiffrer un message.</li>
+            <li><strong>Clé</strong> : information secrète (ou publique dans certains cas) utilisée avec l’algorithme pour transformer le message.</li>
+            <li><strong>Chiffrement (encryption)</strong> : processus de transformation du texte en clair vers le texte chiffré.</li>
+            <li><strong>Déchiffrement (decryption)</strong> : opération inverse du chiffrement, permettant de retrouver le message initial.</li>
+        </ul>
+
+        <h2 class="mt-5">Le chiffre de César</h2>
+        <p>Le chiffre de César est un des plus anciens algorithmes de chiffrement. Il consiste à décaler chaque lettre du message d’un certain nombre de positions dans l’alphabet.</p>
+        <p><strong>Exemple avec un décalage de 3 :</strong></p>
+        <pre><code>Texte original : BONJOUR
+Texte chiffré  : ERQMRXU</code></pre>
+        <p>Chaque lettre est remplacée par la troisième suivante : B devient E, O devient R, N devient Q, etc. Si l’on dépasse Z, on recommence au début de l’alphabet. Ce type de chiffrement est très facile à casser aujourd’hui, mais il illustre bien les principes de substitution.</p>
+
+        <h2 class="mt-5">Les deux grands types de chiffrement</h2>
+        <h4>Chiffrement symétrique</h4>
+        <p>Le chiffrement symétrique repose sur l’utilisation d’une seule clé, partagée entre l’expéditeur et le destinataire. Cette clé permet à la fois de chiffrer et de déchiffrer les données.</p>
+        <p>Il est rapide, mais la difficulté réside dans la distribution sécurisée de la clé.</p>
+        <p>Exemples d’algorithmes :</p>
+        <ul>
+            <li><strong>DES (Data Encryption Standard)</strong> : ancien standard devenu obsolète (clé de 56 bits vulnérable).</li>
+            <li><strong>3DES</strong> : amélioration temporaire de DES, utilisant trois passes successives.</li>
+            <li><strong>AES (Advanced Encryption Standard)</strong> : adopté en 2001, il est aujourd’hui la norme avec des longueurs de clé de 128, 192 ou 256 bits.</li>
+        </ul>
+
+        <h4>Chiffrement asymétrique</h4>
+        <p>Le chiffrement asymétrique repose sur une paire de clés : une clé publique (pour chiffrer) et une clé privée (pour déchiffrer).</p>
+        <p>Ce modèle résout le problème de distribution de clé mais est plus lent que le chiffrement symétrique.</p>
+        <p>Exemples d’algorithmes :</p>
+        <ul>
+            <li><strong>RSA</strong> : basé sur la difficulté de factoriser de grands nombres premiers.</li>
+            <li><strong>Diffie-Hellman</strong> : permet l’échange sécurisé de clés.</li>
+            <li><strong>ECC (Elliptic Curve Cryptography)</strong> : repose sur les propriétés des courbes elliptiques, offrant une sécurité équivalente avec des clés plus courtes.</li>
+        </ul>
+
+        <h2 class="mt-5">Questions fréquentes</h2>
+        <ul>
+            <li><strong>Peut-on encore utiliser DES ?</strong> Non, cet algorithme est désormais considéré comme vulnérable.</li>
+            <li><strong>Quand AES a-t-il été adopté comme standard ?</strong> En 2001, pour remplacer DES de manière officielle.</li>
+        </ul>
+
+        <h2 class="mt-5">Fondements mathématiques</h2>
+        <h4>L’opérateur XOR</h4>
+        <p>XOR est une opération logique fondamentale en cryptographie. Elle compare deux bits et retourne 1 si les bits sont différents, 0 s’ils sont identiques.</p>
+        <p>Propriété utile : si A est une donnée et B une clé, alors :</p>
+        <pre><code>(A XOR B) XOR B = A</code></pre>
+        <p>Cela permet de récupérer la donnée initiale à partir du résultat chiffré et de la clé, sans stockage complexe.</p>
+
+        <h4>Le modulo</h4>
+        <p>L’opération modulo permet d’obtenir le reste d’une division entière. Elle est très utilisée pour créer des cycles, comme dans les décalages alphabétiques ou les opérations sur courbes elliptiques.</p>
+        <p><strong>Exemple :</strong> 118613842 mod 9091 = 3565</p>
+        <p>Calcul détaillé :</p>
+        <pre><code>118613842 = 9091 × 13047 + 3565</code></pre>
+        <p>Le reste de la division est ici 3565. C’est une opération simple mais puissante, souvent combinée avec des clés ou des indices de position.</p>
+
+        <h2 class="mt-5">Conclusion</h2>
+        <ol>
+            <li>La cryptographie est indispensable pour sécuriser les échanges numériques.</li>
+            <li>Elle est présente dans de nombreuses applications du quotidien.</li>
+            <li>Elle repose sur des concepts simples mais robustes : chiffrement, clé, algorithme.</li>
+            <li>Les algorithmes symétriques sont rapides mais nécessitent une clé partagée ; les asymétriques utilisent deux clés distinctes.</li>
+            <li>Des principes mathématiques comme le XOR et le modulo sont essentiels à sa mise en œuvre.</li>
+        </ol>
+    </div>
+            
+    <footer>
+        <!-- Le footer sera inséré dynamiquement ici -->
+    </footer>
+    <script src="../js/scripts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>
