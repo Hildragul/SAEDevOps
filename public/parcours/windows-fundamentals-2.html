@@ -6,23 +6,97 @@
         <title>Exemple</title>
         <link href="../css/styles.css" rel="stylesheet" />
     </head>
+    <header>
+        <!-- Le header sera inséré dynamiquement ici -->
+    </header>
     <body class="d-flex flex-column h-100">
-        <header>
-            <!-- Le header sera inséré dynamiquement ici -->
-        </header>
-        <main class="flex-shrink-0">
-            <!-- Le contenu principal de la page -->
-            <section class="py-5">
-                <div class="container px-5 my-5">
-                    <h1 class="fw-bolder">Exemple de contenu</h1>
-                    <p class="lead">Ceci est un exemple de contenu pour la page.</p>
+        <section class="py-5">
+            <div class="container px-5 my-5">
+                <div class="mb-5">
+        
+                    <div class="ratio ratio-16x9">
+                        <iframe src="https://youtu.be/cbeKeE-1S-4" title="Vidéo de présentation Linux" allowfullscreen></iframe>
+                    </div>
+
+                    <h2 class="mb-4">Configuration du système et outils d’administration</h2>
+        
+                    <p>L'objectif est de découvrir plus en détail la configuration du système, les accès utilisateurs, la supervision des ressources, l'explorateur de fichiers, etc.</p>
+        
+                    <h3>Configuration Système (msconfig)</h3>
+                    <p>L’outil <strong>msconfig</strong> est conçu pour analyser les problèmes du système au démarrage. Pour le lancer, rechercher <code>msconfig</code> dans la barre d’outils.</p>
+                    <p>Il contient 5 onglets :</p>
+                    <ol>
+                        <li><strong>General</strong> : permet de choisir quels appareils et services lancer au démarrage</li>
+                        <li><strong>Boot</strong> : définir les paramètres de lancement</li>
+                        <li><strong>Services</strong> : liste tous les services Windows actifs ou non</li>
+                        <li><strong>Startup</strong> : autrefois utilisé pour gérer les éléments au démarrage, désormais déplacé dans le gestionnaire des tâches</li>
+                        <li><strong>Tools</strong> : accès à divers outils Windows avec description</li>
+                    </ol>
+        
+                    <h3>Gestion informatique</h3>
+                    <p>Outil Windows regroupant plusieurs composants :</p>
+                    <ul>
+                        <li><strong>System Tools</strong>
+                            <ul>
+                                <li><strong>Planificateur de tâches</strong> : planifie des tâches à une date/heure précise</li>
+                                <li><strong>Observateur d’événements</strong> : retrace l’activité de l’ordinateur</li>
+                                <li><strong>Dossiers partagés</strong> : affiche les dossiers partagés entre utilisateurs</li>
+                                <li><strong>Performance</strong> : affiche les performances d’un système ou d’une application</li>
+                                <li><strong>Gestionnaire de périphériques</strong> : gère les périphériques physiques (activer/désactiver)</li>
+                            </ul>
+                        </li>
+                        <li><strong>Storage</strong>
+                            <ul>
+                                <li><strong>Windows Server Backup</strong> : permet de faire une sauvegarde d’un serveur Windows</li>
+                                <li><strong>Gestion des disques</strong> : ajouter, partitionner, renommer des disques durs</li>
+                            </ul>
+                        </li>
+                        <li><strong>Services and Applications</strong> : permet de configurer les services et l’accès à distance</li>
+                    </ul>
+        
+                    <h3>Information Système</h3>
+                    <p>Affiche une vue complète du matériel, des composants système et de l’environnement logiciel, utile pour diagnostiquer des problèmes informatiques.</p>
+                    <ul>
+                        <li><strong>Ressources physiques</strong> : infos sur la gestion matérielle</li>
+                        <li><strong>Composants</strong> : liste les composants physiques et logiciels</li>
+                        <li><strong>Environnement système</strong> : infos sur les logiciels intégrés et installés</li>
+                    </ul>
+        
+                    <h3>Moniteur de ressources</h3>
+                    <p>Affiche l’utilisation du CPU, de la mémoire, du disque et du réseau par processus. Fournit aussi les détails sur les processus liés aux fichiers et modules.</p>
+        
+                    <h3>Command Prompt (CMD)</h3>
+                    <p>Interpréteur de commandes système. Il permet de gérer des fichiers, processus, réseaux, etc.</p>
+                    <p>Quelques commandes utiles :</p>
+                    <ul>
+                        <li><code>hostname</code> : affiche le nom de la machine</li>
+                        <li><code>whoami</code> : affiche l'utilisateur actuel</li>
+                        <li><code>ipconfig</code> : affiche les paramètres réseau</li>
+                        <li><code>/?</code> : affiche l’aide d’une commande</li>
+                    </ul>
+        
+                    <h3>Éditeur de registre (regedit)</h3>
+                    <p>Permet de modifier la base de registre de Windows. Elle contient les paramètres du système, des applications et des pilotes.</p>
+                    <p>Les registres stockent notamment :</p>
+                    <ul>
+                        <li>Profils utilisateur</li>
+                        <li>Applications installées et leurs types de documents</li>
+                        <li>Paramètres d’affichage (icônes, dossiers)</li>
+                        <li>Matériel connecté au système</li>
+                        <li>Ports utilisés</li>
+                    </ul>
+        
+                    <h3>Conclusion</h3>
+                    <p>La room couvre les outils accessibles via <code>msconfig</code>, mais aussi ceux qu'on peut lancer directement via le menu Démarrer. Des raccourcis et commandes sont également partagés pour faciliter leur exécution sans passer par les menus traditionnels.</p>
+        
                 </div>
-            </section>
-        </main>
+            </div>
+        </section>
+        </body>
         <footer>
             <!-- Le footer sera inséré dynamiquement ici -->
         </footer>
         <script src="../js/scripts.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    </body>
+
 </html>

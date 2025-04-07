@@ -1,28 +1,99 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <title>Exemple</title>
-        <link href="../css/styles.css" rel="stylesheet" />
+        <title>THM Windows 1</title>
+        <link href="../../css/styles.css" rel="stylesheet" />
     </head>
+    <header>
+        <!-- Le header sera inséré dynamiquement ici -->
+    </header>
     <body class="d-flex flex-column h-100">
-        <header>
-            <!-- Le header sera inséré dynamiquement ici -->
-        </header>
-        <main class="flex-shrink-0">
-            <!-- Le contenu principal de la page -->
-            <section class="py-5">
-                <div class="container px-5 my-5">
-                    <h1 class="fw-bolder">Exemple de contenu</h1>
-                    <p class="lead">Ceci est un exemple de contenu pour la page.</p>
+        <section class="py-5">
+            <div class="container px-5 my-5">
+                <div class="mb-5">
+
+                    <div class="ratio ratio-16x9">
+                        <iframe src="https://youtu.be/-YtVVaw7Ne4" title="Vidéo de présentation Linux" allowfullscreen></iframe>
+                    </div>
+
+                    <h1 class="mb-4">THM Windows 1</h1>
+
+                    <p>L'objectif est de découvrir l'OS Windows : comment il fonctionne et ce qu'il est capable de faire.</p>
+
+                    <h2>Éditions Windows</h2>
+                    <ul>
+                        <li><strong>Windows XP</strong> : Longue durée de vie et très populaire</li>
+                        <li><strong>Windows Vista</strong> : Beaucoup de problèmes, rapidement oublié</li>
+                        <li><strong>Windows 7</strong> : Obligations d'adaptation pour les vendeurs, rapide → cauchemar</li>
+                        <li><strong>Windows 8</strong> : Idem que Vista</li>
+                        <li><strong>Windows 10 Pro</strong> : Peut activer BitLocker</li>
+                        <li><strong>Windows 10 Home</strong></li>
+                    </ul>
+
+                    <h2>Interface Windows</h2>
+                    <img src="../img/interface windows.png" alt="Interface Windows" class="img-fluid mb-4" />
+                    <ol>
+                        <li><strong>The Desktop</strong> : Raccourcis fichiers, dossiers, programmes, etc.</li>
+                        <li><strong>Start Menu</strong> : Accès à toutes les applis, fichiers, outils</li>
+                        <li><strong>Search Box</strong> (Cortana)</li>
+                        <li><strong>Task View</strong> : Win + Tab</li>
+                        <li><strong>Taskbar</strong> : Affiche/cache des éléments</li>
+                        <li><strong>Toolbars</strong> : Clic droit sur le logo Windows</li>
+                        <li><strong>Notification Area</strong> : Zone affichant la date, l’heure, OneDrive, etc.</li>
+                    </ol>
+
+                    <h2>Système de fichiers</h2>
+                    <img src="../img/explorateur fichiers.png" alt="Interface Windows" class="img-fluid mb-4" />
+                    <p>Versions de fichiers Windows :</p>
+                    <ul>
+                        <li><strong>FAT16</strong> : Ancien système de fichiers, peu utilisé</li>
+                        <li><strong>FAT32</strong> : Meilleure gestion, utilisé sur USB/SD</li>
+                        <li><strong>NTFS</strong> : Système moderne, sécurisé, fiable</li>
+                    </ul>
+
+                    <p>Avantages de NTFS :</p>
+                    <ul>
+                        <li>Support des fichiers de plus de 4 Go</li>
+                        <li>Autorisations spécifiques sur fichiers/dossiers</li>
+                        <li>Compression de fichiers et dossiers</li>
+                        <li>Chiffrement (EFS)</li>
+                    </ul>
+
+                    <h2>Dossier Windows System32</h2>
+                    <img src="../img/sys32.png" alt="Interface Windows" class="img-fluid mb-4" />
+
+                    <p>Le dossier <code>C:\Windows\</code> contient l'OS, mais peut varier selon l'installation. C’est pourquoi on utilise la variable d’environnement <code>%windir%</code>.</p>
+                    <p><strong>System32</strong> contient des fichiers critiques au fonctionnement de Windows. Les modifier peut causer des dysfonctionnements.</p>
+
+                    <h2>Utilisateurs, profils et permissions</h2>
+                    <img src="../img/users & groups.png" alt="Interface Windows" class="img-fluid mb-4" />
+                    <p>Types de comptes :</p>
+                    <ul>
+                        <li><strong>Administrateur</strong> : Peut modifier les paramètres, ajouter/supprimer des utilisateurs, etc.</li>
+                        <li><strong>Utilisateur standard</strong> : Ne peut modifier que ses propres fichiers, ne peut installer des programmes</li>
+                    </ul>
+
+                    <p>Pour créer un utilisateur : taper <em>nouvel utilisateur</em> dans le menu Démarrer.</p>
+
+                    <p>Chaque utilisateur a un dossier dans <code>C:\Users\</code> avec :</p>
+                    <ul>
+                        <li>Bureau</li>
+                        <li>Documents</li>
+                        <li>Téléchargements</li>
+                        <li>Musique</li>
+                        <li>Photos</li>
+                    </ul>
+
                 </div>
-            </section>
-        </main>
-        <footer>
-            <!-- Le footer sera inséré dynamiquement ici -->
-        </footer>
-        <script src="../js/scripts.js"></script>
+            </div>
+        </section>
+
+        <script src="../../js/scripts.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     </body>
+    <footer>
+        <!-- Le footer sera inséré dynamiquement ici -->
+    </footer>
 </html>
